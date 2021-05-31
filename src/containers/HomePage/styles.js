@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const ComponentWrapper = styled.div`
@@ -19,4 +20,8 @@ export const GridContainer = styled.div`
   @media (max-width: 765px) {
     grid-template-columns: 1fr;
   }
+`;
+
+export const NavLink = styled(Link)`
+  text-decoration: none;
 `;

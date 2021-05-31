@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard';
-import { GridContainer, Container, ComponentWrapper } from './styles';
+import { GridContainer, Container, ComponentWrapper, NavLink } from './styles';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -24,7 +23,7 @@ const HomePage = () => {
         <GridContainer>
           {products.map((item) => {
             return (
-              <Link to={`/product/${item.id}`} key='item.id'>
+              <NavLink to={`/product/${item.id}`} key="item.id">
                 <ProductCard
                   key={item.id}
                   width='100%'
@@ -33,7 +32,7 @@ const HomePage = () => {
                   name={item.name}
                   price={item.price}
                 />
-              </Link>
+              </NavLink>
             );
           })}
         </GridContainer>

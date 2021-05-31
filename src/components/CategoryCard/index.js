@@ -7,7 +7,7 @@ const CategoryCard = ({ name, image, to }) => {
       <Link to={to} style={{ textDecoration: 'none' }}>
         <CardWrapper color=''>
           <PhotoContainer img={image}>
-            <Photo src={image || '#'} alt='photo' />
+            <Photo src={image || '#'} alt={name} />
           </PhotoContainer>
           <Name size='1.2rem'>{name}</Name>
         </CardWrapper>

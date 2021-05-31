@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 export const ProductCardWrapper = styled.div`
   width: ${(props) => props.width};
-  /* width: 566px; */
   height: ${(props) => props.height};
-  /* height: 445px; */
 `;
 export const ProductImageWrapper = styled.div`
   display: flex;

@@ -6,7 +6,7 @@ const HomePage = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    async function fetchAPI() {
+    const fetchAPI = async () => {
       let response = await fetch(
         'https://frontend-labs.herokuapp.com/products?_sort=created_at&_limit=10'
       );

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard';
 import { GridContainer, Container, ComponentWrapper } from './styles';
 
@@ -12,7 +13,7 @@ const HomePage = () => {
       );
       response = await response.json();
       setProducts(response);
-    }
+    };
 
     fetchAPI();
   }, []);
@@ -21,16 +22,20 @@ const HomePage = () => {
       <h1>Most recent products</h1>
       <Container>
         <GridContainer>
-          {products.map((item) => (
-            <ProductCard
-              key={item.id}
-              width='100%'
-              height='70%'
-              image={item.image}
-              name={item.name}
-              price={item.price}
-            />
-          ))}
+          {products.map((item) => {
+            return (
+              <Link to={`/product/${item.id}`} key='item.id'>
+                <ProductCard
+                  key={item.id}
+                  width='100%'
+                  height='70%'
+                  image={item.image}
+                  name={item.name}
+                  price={item.price}
+                />
+              </Link>
+            );
+          })}
         </GridContainer>
       </Container>
     </ComponentWrapper>

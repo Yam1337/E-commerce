@@ -36,7 +36,7 @@ export const ProductDetailsWrapper = styled.div`
 
 export const ProductImageWrapper = styled.div`
   display: flex;
-  padding: 0px 50px 0px 50px;
+  margin: 0px 50px 0px 50px;
   justify-content: center;
   height: 60vh;
   width: 60vw;

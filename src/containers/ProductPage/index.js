@@ -23,7 +23,15 @@ const ProductPage = ({ match }) => {
         <div>{`Color: ${productDetails.color}`}</div>
         <div>{`Material: ${productDetails.material}`}</div>
         <div>{productDetails.description}</div>
-        <StandardButton>Add to cart</StandardButton>
+        <StandardButton
+          onClick={() => {
+            console.log(`Add to cart ${productDetails.id}`);
+          }}
+          backgroundColor='#181818'
+          color='#F5F5F5'
+        >
+          Add to cart
+        </StandardButton>
       </ProductDetailsWrapper>
       <ProductImageWrapper img={productDetails.image}>
         <img src={productDetails.image} alt={productDetails.name} />

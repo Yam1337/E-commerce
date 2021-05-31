@@ -1,21 +1,16 @@
 import styled from 'styled-components';
 
-// 14x16rem looks good with photo
-export const NavWrapper = styled.div`
+const NavBarWrapper = styled.nav`
   position: fixed;
-  z-index: 1;
-  display: flex;
   width: 100%;
-  height: 4rem;
-  background-color: ${(props) => props.color || 'green'};
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  color: #181818;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
 `;
 
-export const NavLogo = styled.img`
-  src: ${(props) => props.src || ''}
-`;
-
-export const NavLink = styled.div`
-  position: absolute;
-  background-color: ${(props) => props.color || 'green'};
-  padding: 1rem;
-`;
+export default NavBarWrapper;

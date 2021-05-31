@@ -1,24 +1,39 @@
 import { useState, useEffect } from 'react';
-import { Container, ProductCard } from './styles';
+import ProductCard from '../../components/ProductCard';
+import { GridContainer, Container, ComponentWrapper } from './styles';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('https://frontend-labs.herokuapp.com/products?_limit=10')
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
+    async function fetchAPI() {
+      let response = await fetch(
+        'https://frontend-labs.herokuapp.com/products?_sort=created_at&_limit=10'
+      );
+      response = await response.json();
+      setProducts(response);
+    }
+
+    fetchAPI();
   }, []);
-  console.log(products);
   return (
-    <>
+    <ComponentWrapper>
       <h1>Most recent products</h1>
       <Container>
-        {products.map((item) => (
-          <ProductCard key={item.id}>{item.image}{item.name}</ProductCard>
-        ))}
+        <GridContainer>
+          {products.map((item) => (
+            <ProductCard
+              key={item.id}
+              width='100%'
+              height='70%'
+              image={item.image}
+              name={item.name}
+              price={item.price}
+            />
+          ))}
+        </GridContainer>
       </Container>
-    </>
+    </ComponentWrapper>
   );
 };
 

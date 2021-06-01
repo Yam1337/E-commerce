@@ -14,7 +14,7 @@ export const ProductDetailsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(60vh - 100px);
+  height: 60vh;
   width: 40vw;
   & > *:first-child {
     font-size: 42px;
@@ -29,7 +29,7 @@ export const ProductDetailsWrapper = styled.div`
   & > *:nth-child(4) {
     font-size: 18px;
   }
-  & > *:last-child {
+  & > *:nth-child(5) {
     font-size: 22px;
   }
 `;
@@ -42,7 +42,11 @@ export const ProductImageWrapper = styled.div`
   width: 60vw;
   background-image: url(${(props) => props.img || ''});
   background-size: 100% 100%;
-  img {
-    height: 100%;
-  }
+`;
+
+export const ProductImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  backdrop-filter: blur(2px);
 `;

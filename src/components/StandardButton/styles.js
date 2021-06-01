@@ -6,6 +6,8 @@ const StandardButtonWrapper = styled.button`
   background-color: ${(props) => props.backgroundColor};
   color: ${(props) => props.color};
   font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: bold;
   border: none;
   &:active {
     transform: scale(0.95);

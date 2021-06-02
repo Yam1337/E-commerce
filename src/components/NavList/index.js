@@ -7,7 +7,7 @@ const NavList = ({ isMenuOpen, handleClick }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadError, setIsLoadError] = useState(false);
 
-  const fetchData = async () => {
+  const fetchMenuLinks = async () => {
     const res = await fetch('https://frontend-labs.herokuapp.com/main-menu');
     if (res.ok) {
       const data = await res.json();
@@ -20,7 +20,7 @@ const NavList = ({ isMenuOpen, handleClick }) => {
   };
 
   useEffect(() => {
-    fetchData().catch(() => {
+    fetchMenuLinks().catch(() => {
       setIsLoadError(true);
       setIsLoading(false);
     });

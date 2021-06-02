@@ -19,7 +19,11 @@ const ProductPage = ({ match }) => {
 
   useEffect(() => {
     const getData = async () => {
-      setProductDetails(await fetchData(match.params.id));
+      setProductDetails(
+        await fetchData(
+          `https://frontend-labs.herokuapp.com/products/${match.params.id}`
+        )
+      );
       setLoading(false);
     };
     getData();
@@ -41,11 +45,10 @@ const ProductPage = ({ match }) => {
             <div>{`Color: ${productDetails.color}`}</div>
             <div>{`Material: ${productDetails.material}`}</div>
             <div>{productDetails.description}</div>
-            <StandardButton
-              onClick={() => {
-                console.log(`Add to cart ${productDetails.id}`);
-              }}
-            >
+
+            {/* TODO: ADD HERE ADDTOCART FUNCTION */}
+
+            <StandardButton onClick={() => {}}>
               <ButtonContentWrapper>
                 <IconImage src={ShoppingCartIcon} alt='Shopping Cart Icon' />
                 <ButtonText>Add to Cart</ButtonText>

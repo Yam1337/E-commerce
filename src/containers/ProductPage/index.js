@@ -4,10 +4,15 @@ import {
   ProductImageWrapper,
   ProductDetailsWrapper,
   ProductImage,
+  ButtonContentWrapper,
+  IconImage,
+  ButtonText,
 } from './styles';
 import fetchData from './utils/fetchData';
 import StandardButton from '../../components/StandardButton/styles';
 import { Loader } from '../../styles';
+
+import ShoppingCartIcon from '../../assets/icons/shoppingCartIcon.svg';
 
 const ProductPage = ({ match }) => {
   const [loading, setLoading] = useState(true);
@@ -40,16 +45,17 @@ const ProductPage = ({ match }) => {
               onClick={() => {
                 console.log(`Add to cart ${productDetails.id}`);
               }}
-              backgroundColor='#181818'
-              color='#F5F5F5'
             >
-              Add to cart
+              <ButtonContentWrapper>
+                <IconImage src={ShoppingCartIcon} alt='Shopping Cart Icon' />
+                <ButtonText>Add to Cart</ButtonText>
+              </ButtonContentWrapper>
             </StandardButton>
           </ProductDetailsWrapper>
           <ProductImageWrapper img={productDetails.image}>
             <ProductImage
               src={productDetails.image || '#'}
-              alt={productDetails.name}
+              alt={productDetails.name || '#'}
             />
           </ProductImageWrapper>
         </ProductDetailsPageWrapper>

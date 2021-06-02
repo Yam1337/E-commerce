@@ -20,12 +20,17 @@ export const ProductDetailsWrapper = styled.div`
   font-family: 'Poppins', sans-serif;
   height: 10%;
   & > *:first-child {
-    font-size: 20px;
+    font-size: calc(1.1rem + 0.2vw);
     color: #181818;
   }
 
   & > *:nth-child(2) {
-    font-size: 14px;
+    font-size: calc(1rem + 0.2vw);
     color: #181818;
   }
+`;
+export const PriceWrapper = styled.div`
+  overflow-wrap: break-word;
+  white-space: nowrap;
+  padding-right: 1rem;
 `;

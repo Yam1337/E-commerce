@@ -1,12 +1,27 @@
-import { NavWrapper } from './styles';
+import { useState } from 'react';
+
+import NavBarWrapper from './styles';
+
+import HamburgerButton from '../HamburgerButton';
+import Logo from '../Logo';
+import NavList from '../NavList';
+
+import NavButtons from '../NavButtons';
 
 const NavBar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const clickHandler = () => {
+    setIsMenuOpen((menuOpen) => !menuOpen);
+  };
+
   return (
-    <>
-      <NavWrapper>
-        <h1>NavBar</h1>
-      </NavWrapper>
-    </>
+    <NavBarWrapper>
+      <HamburgerButton isMenuOpen={isMenuOpen} handleClick={clickHandler} />
+      <Logo />
+      <NavList isMenuOpen={isMenuOpen} handleClick={clickHandler} />
+      <NavButtons />
+    </NavBarWrapper>
   );
 };
 

@@ -9,12 +9,7 @@ const SortBox = ({ state }) => {
     <>
       <SortWrapper>
         <Title>SORTING BY</Title>
-        <Select
-          id='kindofJob'
-          name='kindofJob'
-          value={sort}
-          onChange={handleChange}
-        >
+        <Select value={sort} onChange={handleChange}>
           <option value=''>---</option>
           <option value='alphabet'>Alphabetical order</option>
           <option value='increasing'>Increasing price</option>

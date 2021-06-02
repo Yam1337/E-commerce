@@ -3,7 +3,13 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ProductCard from '../../components/ProductCard';
 import SortBox from '../../components/SortBox';
-import { ComponentWrapper, Title, GridContainer, TopContainer } from './styles';
+import {
+  ComponentWrapper,
+  Title,
+  GridContainer,
+  TopContainer,
+  Error,
+} from './styles';
 import { Loader } from '../../styles';
 
 const CategoryPage = ({ match }) => {
@@ -11,20 +17,29 @@ const CategoryPage = ({ match }) => {
   const [products, setProducts] = useState([]);
   const [sort, setSort] = useState('');
   const [loader, setLoader] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchName = async () => {
-      const { data } = await axios.get(
-        `https://frontend-labs.herokuapp.com/categories/?id=${match.params.id}`
-      );
-      setCategory(data[0].name);
+      try {
+        const { data } = await axios.get(
+          `https://frontend-labs.herokuapp.com/categories/?id=${match.params.id}`
+        );
+        setCategory(data[0].name);
+      } catch (e) {
+        setCategory('This');
+      }
     };
 
     const fetchCategories = async () => {
-      const { data } = await axios.get(
-        `https://frontend-labs.herokuapp.com/products?category.id=${match.params.id}`
-      );
-      setProducts(data);
+      try {
+        const { data } = await axios.get(
+          `https://frontend-labs.herokuapp.com/products?category.id=${match.params.id}`
+        );
+        setProducts(data);
+      } catch (e) {
+        setError(true);
+      }
     };
 
     Promise.all([fetchCategories(), fetchName()]).then((res) => {
@@ -56,20 +71,24 @@ const CategoryPage = ({ match }) => {
               <Title>{`${category} category - ${products.length} products`}</Title>
               <SortBox state={[sort, setSort]} />
             </TopContainer>
-            <GridContainer>
-              {products.sort(sortHandler).map((item) => (
-                <Link to={`/product/${item.id}`} key={item.id}>
-                  <ProductCard
-                    key={item.id}
-                    image={item.image}
-                    price={item.price}
-                    name={item.name}
-                    height='100%'
-                    width='100%'
-                  />
-                </Link>
-              ))}
-            </GridContainer>
+            {error ? (
+              <Error>Something went wrong, try again later!</Error>
+            ) : (
+              <GridContainer>
+                {products.sort(sortHandler).map((item) => (
+                  <Link to={`/product/${item.id}`} key={item.id}>
+                    <ProductCard
+                      key={item.id}
+                      image={item.image}
+                      price={item.price}
+                      name={item.name}
+                      height='100%'
+                      width='100%'
+                    />
+                  </Link>
+                ))}
+              </GridContainer>
+            )}
           </>
         )}
       </ComponentWrapper>

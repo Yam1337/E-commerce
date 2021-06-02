@@ -49,3 +49,7 @@ export const TopContainer = styled.div`
     gap: 1rem;
   }
 `;
+
+export const Error = styled.h2`
+  color: ${(props) => props.color || 'black'}};
+`;

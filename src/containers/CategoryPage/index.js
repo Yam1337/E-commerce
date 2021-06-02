@@ -47,7 +47,6 @@ const CategoryPage = ({ match }) => {
 
   return (
     <>
-      {console.log(1)}
       <ComponentWrapper>
         {loader ? (
           <Loader />

@@ -3,11 +3,16 @@ import { displayCardAnimation } from '../../styles';
 
 export const Title = styled.h1`
   color: ${({ theme }) => theme.body.primaryColor};
+  font-size: 3rem;
+
+  @media (max-width: 768px) {
+    font-size: calc(2.4rem + 0.2vw);
+  }
 `;
 
 export const ComponentWrapper = styled.div`
   font-family: ${({ theme }) => theme.fontFamilies.textFont}, 'sans-serif';
-  padding: 2rem;
+  padding: 2rem 4rem;
 `;
 
 export const GridContainer = styled.div`
@@ -43,7 +48,8 @@ export const GridContainer = styled.div`
 export const TopContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  @media (max-width: 520px) {
+
+  @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
     gap: 1rem;

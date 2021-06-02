@@ -9,7 +9,7 @@ const CategoryCard = ({ name, image, to }) => {
           <PhotoContainer img={image}>
             <Photo src={image || '#'} alt={name} />
           </PhotoContainer>
-          <Name size='1.2rem'>{name}</Name>
+          <Name size='calc(1.5rem + 0.2vw)'>{name}</Name>
         </CardWrapper>
       </Link>
     </>

@@ -3,11 +3,12 @@ import { displayCardAnimation } from '../../styles';
 
 export const Title = styled.h1`
   color: ${({ theme }) => theme.body.primaryColor}};
+  font-size: 3rem;
 `;
 
 export const ComponentWrapper = styled.div`
   font-family: ${({ theme }) => theme.fontFamilies.textFont}, 'sans-serif';
-  padding: 2rem;
+  padding: 2rem 4rem;
 `;
 
 export const GridContainer = styled.div`

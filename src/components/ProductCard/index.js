@@ -2,6 +2,7 @@ import {
   ProductCardWrapper,
   ProductImageWrapper,
   ProductDetailsWrapper,
+  PriceWrapper,
 } from './styles';
 
 function ProductCard({ width, height, image, name, price }) {
@@ -12,7 +13,7 @@ function ProductCard({ width, height, image, name, price }) {
       </ProductImageWrapper>
       <ProductDetailsWrapper>
         <div>{name}</div>
-        <div>{`${price} zł`}</div>
+        <PriceWrapper>{`${price} zł`}</PriceWrapper>
       </ProductDetailsWrapper>
     </ProductCardWrapper>
   );

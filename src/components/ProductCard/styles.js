@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 export const ProductCardWrapper = styled.div`
   width: ${(props) => props.width};
-  /* width: 566px; */
   height: ${(props) => props.height};
-  /* height: 445px; */
 `;
 export const ProductImageWrapper = styled.div`
   display: flex;
@@ -12,6 +10,7 @@ export const ProductImageWrapper = styled.div`
   height: 88%;
   & img {
     height: 100%;
+    width: 100%;
   }
 `;
 export const ProductDetailsWrapper = styled.div`
@@ -19,7 +18,7 @@ export const ProductDetailsWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   font-family: 'Poppins', sans-serif;
-  height: 12%;
+  height: 10%;
   & > *:first-child {
     font-size: 20px;
     color: #181818;

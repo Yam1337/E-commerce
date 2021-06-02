@@ -23,11 +23,11 @@ const HomePage = () => {
         <GridContainer>
           {products.map((item) => {
             return (
-              <NavLink to={`/product/${item.id}`} key="item.id">
+              <NavLink to={`/product/${item.id}`} key={item.id}>
                 <ProductCard
-                  key={item.id}
+                  key={item.name}
                   width='100%'
-                  height='70%'
+                  height='100%'
                   image={item.image}
                   name={item.name}
                   price={item.price}

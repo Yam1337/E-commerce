@@ -3,9 +3,13 @@ import styled from 'styled-components';
 
 export const ComponentWrapper = styled.div`
   padding: 2rem;
+  @media (max-width: 765px) {
+    text-align: center;
+  }
 `;
 
 export const Container = styled.div`
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,11 +18,14 @@ export const Container = styled.div`
 
 export const GridContainer = styled.div`
   display: grid;
-  grid-gap: 1rem 10%;
-  grid-template-columns: repeat(2, 0.6fr);
-  margin: 2rem 0;
+  width: 75rem;
+  margin: 0 2rem;
+  grid-gap: 4rem 4rem;
+  grid-template-columns: 35rem 35rem;
+  grid-template-rows: repeat(5, 30rem);
   @media (max-width: 765px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 18rem;
+    grid-template-rows: repeat(10, 15rem);
   }
 `;
 

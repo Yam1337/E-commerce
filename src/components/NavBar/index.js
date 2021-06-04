@@ -8,7 +8,7 @@ import NavList from '../NavList';
 
 import NavButtons from '../NavButtons';
 
-const NavBar = () => {
+const NavBar = ({ isDarkMode, themeHandler }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const clickHandler = () => {
@@ -20,7 +20,7 @@ const NavBar = () => {
       <HamburgerButton isMenuOpen={isMenuOpen} handleClick={clickHandler} />
       <Logo />
       <NavList isMenuOpen={isMenuOpen} handleClick={clickHandler} />
-      <NavButtons />
+      <NavButtons isDarkMode={isDarkMode} themeHandler={themeHandler} />
     </NavBarWrapper>
   );
 };

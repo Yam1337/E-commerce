@@ -41,7 +41,7 @@ const Loader = styled.div`
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: #989898;
+    background: ${({ theme }) => theme.navbar.secondaryColor};
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
   div:nth-child(1) {

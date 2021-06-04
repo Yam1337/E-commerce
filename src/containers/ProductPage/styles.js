@@ -12,17 +12,18 @@ export const ProductDetailsPageWrapper = styled.div`
 `;
 
 export const ProductDetailsWrapper = styled.div`
-  font-family: 'Poppins', sans-serif;
+  font-family: ${({ theme }) => theme.fontFamilies.textFont}, 'sans-serif';
   padding: 0px 50px 100px 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 75vh;
   width: 40vw;
+  color: ${({ theme }) => theme.body.primaryColor};
   font-size: 20px;
   & > *:first-child {
     font-size: calc(1.3em + 1vw);
-    font-weight: bold;
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
   }
   & > *:nth-child(2) {
     font-size: calc(1.2em + 0.5vw);
@@ -90,8 +91,10 @@ export const ButtonContentWrapper = styled.div`
 `;
 export const IconImage = styled.img`
   display: flex;
-  height: 32px;
-  width: 32px;
+  height: 3.2rem;
+  width: 3.2rem;
+  object-fit: cover;
+  object-position: ${({ theme }) => (theme.lightMode ? 'bottom' : 'top')};
 `;
 export const ButtonText = styled.div`
   display: flex;

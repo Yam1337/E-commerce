@@ -6,7 +6,7 @@ import youtubeIcon from '../../assets/icons/youtubeIcon.svg';
 
 const FooterWrapper = styled.footer`
   height: 15rem;
-  background-color: #181818;
+  background-color: ${({ theme }) => theme.footer.background};
   color: #f5f5f5;
   display: flex;
   flex-direction: column;

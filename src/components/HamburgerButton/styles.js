@@ -23,7 +23,7 @@ const Button = styled.button`
     display: block;
     width: 100%;
     height: 0.2rem;
-    background: #181818;
+    background: ${({ theme }) => theme.navbar.primaryColor};
     border-radius: 0.2rem;
     transition: transform 0.7s ease, opacity 0.5s ease;
   }

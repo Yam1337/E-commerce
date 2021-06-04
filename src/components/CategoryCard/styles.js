@@ -13,8 +13,8 @@ export const CardWrapper = styled.div`
 
 export const Name = styled.span`
   margin-left: 0.2rem;
-  color: ${(props) => props.color || 'black'};
-  font-weight: bold;
+  color: ${({ theme }) => theme.body.primaryColor};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-size: ${(props) => props.size || '1rem'};
 `;
 

@@ -21,11 +21,11 @@ export const List = styled.ul`
   align-items: center;
   justify-content: space-evenly;
   z-index: 5;
-  background-color: #f5f5f5;
+  background-color: ${({ theme }) => theme.navbar.background};
   font-weight: 500;
   font-size: 1.8rem;
   list-style: none;
-  color: #989898;
+  color: ${({ theme }) => theme.navbar.secondaryColor};
   font-family: 'Poppins', 'sans-serif';
   align-items: center;
 
@@ -43,11 +43,13 @@ export const List = styled.ul`
   }
 
   .navLink {
-    color: #181818;
-    font-weight: 700;
+    color: ${({ theme }) => theme.navbar.primaryColor};
+    font-weight: ${({ theme }) =>
+      theme.lightMode ? theme.fontWeights.bold : theme.fontWeights.normal};
 
     .navLink_icon {
-      background-position: top center;
+      background-position: ${({ theme }) =>
+        theme.lightMode ? 'top' : 'bottom'};
     }
   }
 `;
@@ -86,7 +88,7 @@ export const LinkIcon = styled.div`
 `;
 
 export const Error = styled.div`
-  color: #989898;
+  color: ${({ theme }) => theme.navbar.secondaryColor};
   font-size: 1.4rem;
   font-family: 'Poppins';
   height: 100%;

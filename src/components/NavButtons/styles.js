@@ -18,6 +18,10 @@ const Button = styled.button`
   width: 2.5rem;
   height: 2.5rem;
   background-size: 200% 200%;
+  color: ${({ theme }) => theme.navbar.primaryColor};
+  background-position: ${({ theme }) => (theme.lightMode ? 'top' : 'bottom')};
+  font-weight: ${({ theme }) =>
+    theme.lightMode ? theme.fontWeights.bold : theme.fontWeights.normal};
 
   @media (min-width: 520px) {
     margin-right: 3rem;
@@ -31,7 +35,6 @@ const Button = styled.button`
 
   span {
     position: absolute;
-    font-weight: 700;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
@@ -40,7 +43,6 @@ const Button = styled.button`
 `;
 
 export const CartButton = styled(Button)`
-  background-position: top center;
   background-image: url(${cartIcons});
 
   .button_quantity {

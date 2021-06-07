@@ -28,3 +28,4 @@ export const Title = styled.span`
 
 export const Option = styled.option`
   font-size: calc(1rem + 0.2vw);
+`;

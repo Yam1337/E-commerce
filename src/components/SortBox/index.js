@@ -1,4 +1,4 @@
-import { Select, SortWrapper, Title, Option } from './styles';
+import { Select, SortWrapper, Option, Title } from './styles';
 
 const SortBox = ({ state }) => {
   const [sort, setSort] = state;

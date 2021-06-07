@@ -1,9 +1,17 @@
 import { useState, useEffect } from 'react';
 import ProductCard from '../../components/ProductCard';
-import { GridContainer, Container, ComponentWrapper, NavLink } from './styles';
+import { Loader } from '../../styles';
+import {
+  GridContainer,
+  Container,
+  ComponentWrapper,
+  NavLink,
+  Title,
+} from './styles';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     const fetchAPI = async () => {
@@ -12,30 +20,35 @@ const HomePage = () => {
       );
       response = await response.json();
       setProducts(response);
+      setLoader(false);
     };
 
     fetchAPI();
   }, []);
   return (
     <ComponentWrapper>
-      <h1>Most recent products</h1>
+      <Title>Most recent products</Title>
       <Container>
-        <GridContainer>
-          {products.map((item) => {
-            return (
-              <NavLink to={`/product/${item.id}`} key={item.id}>
-                <ProductCard
-                  key={item.name}
-                  width='100%'
-                  height='100%'
-                  image={item.image}
-                  name={item.name}
-                  price={item.price}
-                />
-              </NavLink>
-            );
-          })}
-        </GridContainer>
+        {loader ? (
+          <Loader />
+        ) : (
+          <GridContainer>
+            {products.map((item) => {
+              return (
+                <NavLink to={`/product/${item.id}`} key={item.id}>
+                  <ProductCard
+                    key={item.name}
+                    width='100%'
+                    height='100%'
+                    image={item.image}
+                    name={item.name}
+                    price={item.price}
+                  />
+                </NavLink>
+              );
+            })}
+          </GridContainer>
+        )}
       </Container>
     </ComponentWrapper>
   );

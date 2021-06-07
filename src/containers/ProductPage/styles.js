@@ -6,6 +6,7 @@ export const ProductDetailsPageWrapper = styled.div`
   align-content: center;
   align-items: center;
   height: 100vh;
+  min-height: 500px;
   @media (max-width: 1200px) {
     flex-direction: column-reverse;
   }
@@ -18,6 +19,8 @@ export const ProductDetailsWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 75vh;
+  min-height: 300px;
+  overflow: hidden;
   width: 40vw;
   color: ${({ theme }) => theme.body.primaryColor};
   font-size: 20px;
@@ -40,16 +43,6 @@ export const ProductDetailsWrapper = styled.div`
   @media (max-width: 1200px) {
     width: 100%;
     padding: 20px 10px 20px 10px;
-    height: 35vh;
-  }
-  @media (max-width: 768px) {
-    height: 45vh;
-  }
-  @media (max-width: 520px) {
-    height: 50vh;
-  }
-  @media (max-width: 320px) {
-    height: 60vh;
   }
 `;
 
@@ -58,6 +51,7 @@ export const ProductImageWrapper = styled.div`
   margin: 0px 50px 0px 50px;
   justify-content: center;
   height: 75vh;
+  min-height: 200px;
   width: 60vw;
   background-image: url(${(props) => props.img || ''});
   background-size: 100% 100%;

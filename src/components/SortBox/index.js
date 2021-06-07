@@ -1,4 +1,4 @@
-import { Select, SortWrapper, Title } from './styles';
+import { Select, SortWrapper, Option, Title } from './styles';
 
 const SortBox = ({ state }) => {
   const [sort, setSort] = state;
@@ -10,10 +10,10 @@ const SortBox = ({ state }) => {
       <SortWrapper>
         <Title>SORTING BY</Title>
         <Select value={sort} onChange={handleChange}>
-          <option value=''>---</option>
-          <option value='alphabet'>Alphabetical order</option>
-          <option value='increasing'>Increasing price</option>
-          <option value='decreasing'>Decreasing price</option>
+          <Option value=''>---</Option>
+          <Option value='alphabet'>Alphabetical order</Option>
+          <Option value='increasing'>Increasing price</Option>
+          <Option value='decreasing'>Decreasing price</Option>
         </Select>
       </SortWrapper>
     </>

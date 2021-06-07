@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
-  Redirect,
   Route,
   Switch,
 } from 'react-router-dom';
@@ -9,6 +8,7 @@ import {
 import { ThemeProvider } from 'styled-components';
 import { lightMode, darkMode } from './utils/themes';
 import GlobalStyle from './utils/globalStyles';
+import PrivateRoute from './routing/PrivateRoute';
 
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
@@ -18,6 +18,8 @@ import CategoryPage from './containers/CategoryPage';
 import ProductPage from './containers/ProductPage';
 import ErrorPage from './containers/ErrorPage';
 import ProfilePage from './containers/ProfilePage';
+import ShopingCartPage from './containers/ShopingCartPage';
+import LoginPage from './containers/LoginPage';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(null);
@@ -52,19 +54,18 @@ function App() {
         <NavBar isDarkMode={isDarkMode} themeHandler={themeToggler} />
         <div className='app-container'>
           <Switch>
-            <Route exact path='/'>
-              <Redirect to='/home' />
-            </Route>
-            <Route path='/home' component={HomePage} />
+            <Route exact path={['/', '/home']} component={HomePage} />
             <Route exact path='/categories' component={CategoriesPage} />
-            <Route path='/category/:id' component={CategoryPage} />
-            <Route path='/product/:id' component={ProductPage} />
-            <Route path='/profile' component={ProfilePage} />
-            <Route component={ErrorPage} />
+            <Route exact path='/category/:id' component={CategoryPage} />
+            <Route exact path='/product/:id' component={ProductPage} />
+            <Route exact path='/cart' component={ShopingCartPage} />
+            <Route exact path='/login' component={LoginPage} />
+            <PrivateRoute exact path='/profile' component={ProfilePage} />
+            <Route path='*' component={ErrorPage} />
           </Switch>
         </div>
+        <Footer />
       </Router>
-      <Footer />
     </ThemeProvider>
   );
 }

@@ -25,6 +25,17 @@ a {
   color: ${({ theme }) => theme.navbar.secondaryColor};
 }
 
+.activeLink {
+    color: ${({ theme }) => theme.navbar.primaryColor};
+    font-weight: ${({ theme }) =>
+      theme.lightMode ? theme.fontWeights.bold : theme.fontWeights.normal};
+
+    .activeLinkIcon {
+      background-position: ${({ theme }) =>
+        theme.lightMode ? 'top' : 'bottom'};
+    }
+  }
+
 .sr-only {
   border: 0;
   clip: rect(0, 0, 0, 0);

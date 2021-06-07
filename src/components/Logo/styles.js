@@ -13,12 +13,12 @@ export const LogoLink = styled.a`
   margin-left: 1rem;
 
   @media (min-width: 520px) {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     margin-left: 2rem;
   }
 
   @media (min-width: 950px) {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
 `;
 
@@ -26,16 +26,16 @@ export const LogoLinkIcon = styled(LinkIcon)`
   background-image: url(${logoIcons});
   background-position: ${({ theme }) => (theme.lightMode ? 'top' : 'bottom')};
   background-size: cover;
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 2.6rem;
+  height: 2.6rem;
   margin-right: 1rem;
 
   @media (min-width: 520px) {
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 3rem;
+    height: 3rem;
   }
   @media (min-width: 950px) {
-    width: 3.6rem;
-    height: 3.6rem;
+    width: 3.4rem;
+    height: 3.4rem;
   }
 `;

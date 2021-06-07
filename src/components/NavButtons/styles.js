@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 import modeIcons from '../../assets/icons/modeIcons.svg';
 import cartIcons from '../../assets/icons/cartIcons.svg';
@@ -7,14 +8,13 @@ export const ButtonsWrapper = styled.div`
   display: flex;
 `;
 
-const Button = styled.button`
+const baseButtonStyles = css`
   font-family: 'Poppins', 'sans-serif';
   font-size: 1.4rem;
   margin-right: 2rem;
   position: relative;
   background-color: unset;
   border: none;
-  outline: none;
   width: 2.5rem;
   height: 2.5rem;
   background-size: 200% 200%;
@@ -22,6 +22,10 @@ const Button = styled.button`
   background-position: ${({ theme }) => (theme.lightMode ? 'top' : 'bottom')};
   font-weight: ${({ theme }) =>
     theme.lightMode ? theme.fontWeights.bold : theme.fontWeights.normal};
+
+  &:hover {
+    cursor: pointer;
+  }
 
   @media (min-width: 520px) {
     margin-right: 3rem;
@@ -42,7 +46,8 @@ const Button = styled.button`
   }
 `;
 
-export const CartButton = styled(Button)`
+export const CartButton = styled(NavLink)`
+  ${baseButtonStyles}
   background-image: url(${cartIcons});
 
   .button_quantity {
@@ -51,6 +56,7 @@ export const CartButton = styled(Button)`
   }
 `;
 
-export const ThemeButton = styled(Button)`
+export const ThemeButton = styled.button`
+  ${baseButtonStyles}
   background-image: url(${modeIcons});
 `;

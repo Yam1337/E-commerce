@@ -6,6 +6,14 @@ const NavList = ({ isMenuOpen, handleClick }) => {
   const [menuLinks, setMenuLinks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadError, setIsLoadError] = useState(false);
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    const name = localStorage.getItem('name');
+    if (name) {
+      setUserName(`${name}'s `);
+    }
+  }, []);
 
   const fetchMenuLinks = async () => {
     const res = await fetch('https://frontend-labs.herokuapp.com/main-menu');
@@ -36,11 +44,12 @@ const NavList = ({ isMenuOpen, handleClick }) => {
     responseToRender = menuLinks.map((item) => (
       <li key={item.id}>
         <NavLinkWrapper
-          activeClassName='navLink'
+          activeClassName='activeLink'
           to={item.path}
           onClick={handleClick}
         >
-          <LinkIcon className='navLink_icon' iconName={item.name} />
+          <LinkIcon className='activeLinkIcon' iconName={item.name} />
+          {item.name === 'Profile' ? userName : ''}
           {item.name}
         </NavLinkWrapper>
       </li>

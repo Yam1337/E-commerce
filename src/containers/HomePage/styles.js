@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 export const ComponentWrapper = styled.div`
   padding: 2rem;
+  font-family: ${({ theme }) => theme.fontFamilies.textFont}, 'sans-serif';
+  color: ${({ theme }) => theme.body.primaryColor};
   @media (max-width: 765px) {
     text-align: center;
   }

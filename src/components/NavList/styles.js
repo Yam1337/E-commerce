@@ -21,11 +21,11 @@ export const List = styled.ul`
   align-items: center;
   justify-content: space-evenly;
   z-index: 5;
-  background-color: #f5f5f5;
+  background-color: ${({ theme }) => theme.navbar.background};
   font-weight: 500;
-  font-size: 1.8rem;
+  font-size: 2rem;
   list-style: none;
-  color: #989898;
+  color: ${({ theme }) => theme.navbar.secondaryColor};
   font-family: 'Poppins', 'sans-serif';
   align-items: center;
 
@@ -33,22 +33,18 @@ export const List = styled.ul`
     position: static;
     width: unset;
     height: unset;
+    font-size: 1.4rem;
     flex-direction: unset;
     transform: unset;
     transition: unset;
   }
 
-  @media (min-width: 1200px) {
-    font-size: 2.2rem;
+  @media (min-width: 950px) {
+    font-size: 1.6rem;
   }
 
-  .navLink {
-    color: #181818;
-    font-weight: 700;
-
-    .navLink_icon {
-      background-position: top center;
-    }
+  @media (min-width: 1200px) {
+    font-size: 2.2rem;
   }
 `;
 
@@ -70,6 +66,7 @@ export const LinkIcon = styled.div`
   width: 3.5rem;
   height: 3.5rem;
   background-position: center;
+  background-size: cover;
   background-image: url(${(props) => {
     switch (props.iconName) {
       case 'Home': {
@@ -83,10 +80,19 @@ export const LinkIcon = styled.div`
       }
     }
   }});
+
+  @media (min-width: 768px) {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+  @media (min-width: 950px) {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
 `;
 
 export const Error = styled.div`
-  color: #989898;
+  color: ${({ theme }) => theme.navbar.secondaryColor};
   font-size: 1.4rem;
   font-family: 'Poppins';
   height: 100%;

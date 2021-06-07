@@ -17,16 +17,16 @@ export const ProductDetailsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: ${({ theme }) => theme.fontFamilies.textFont}, 'sans-serif';
   height: 10%;
   & > *:first-child {
     font-size: calc(1.1rem + 0.2vw);
-    color: #181818;
+    color: ${({ theme }) => theme.body.primaryColor};
   }
 
   & > *:nth-child(2) {
     font-size: calc(1rem + 0.2vw);
-    color: #181818;
+    color: ${({ theme }) => theme.body.primaryColor};
   }
 `;
 export const PriceWrapper = styled.div`

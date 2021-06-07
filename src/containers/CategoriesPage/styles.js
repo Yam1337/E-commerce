@@ -2,10 +2,11 @@ import styled from 'styled-components';
 import { displayCardAnimation } from '../../styles';
 
 export const Title = styled.h1`
-  color: ${(props) => props.color || 'black'}};
+  color: ${({ theme }) => theme.body.primaryColor}};
 `;
 
 export const ComponentWrapper = styled.div`
+  font-family: ${({ theme }) => theme.fontFamilies.textFont}, 'sans-serif';
   padding: 2rem;
 `;
 

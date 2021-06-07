@@ -12,7 +12,7 @@ import fetchData from './utils/fetchData';
 import StandardButton from '../../components/StandardButton/styles';
 import { Loader } from '../../styles';
 
-import ShoppingCartIcon from '../../assets/icons/shoppingCartIcon.svg';
+import cartIcons from '../../assets/icons/cartIcons.svg';
 
 const ProductPage = ({ match }) => {
   const [loading, setLoading] = useState(true);
@@ -50,7 +50,7 @@ const ProductPage = ({ match }) => {
 
             <StandardButton onClick={() => {}}>
               <ButtonContentWrapper>
-                <IconImage src={ShoppingCartIcon} alt='Shopping Cart Icon' />
+                <IconImage src={cartIcons} alt='Shopping Cart Icon' />
                 <ButtonText>Add to Cart</ButtonText>
               </ButtonContentWrapper>
             </StandardButton>

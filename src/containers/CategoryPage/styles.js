@@ -2,17 +2,17 @@ import styled from 'styled-components';
 import { displayCardAnimation } from '../../styles';
 
 export const Title = styled.h1`
-  color: ${(props) => props.color || 'black'}};
+  color: ${({ theme }) => theme.body.primaryColor};
 `;
 
 export const ComponentWrapper = styled.div`
+  font-family: ${({ theme }) => theme.fontFamilies.textFont}, 'sans-serif';
   padding: 2rem;
 `;
 
 export const GridContainer = styled.div`
   margin-top: 1rem;
   padding: 2rem 3% 2rem 3%;
-  background-color: ${(props) => props.color || ''};
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(4, minmax(5rem, 0.5fr));
@@ -51,5 +51,5 @@ export const TopContainer = styled.div`
 `;
 
 export const Error = styled.h2`
-  color: ${(props) => props.color || 'black'}};
+  color: ${({ theme }) => theme.body.primaryColor};
 `;

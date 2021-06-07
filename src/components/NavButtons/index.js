@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ButtonsWrapper, CartButton, ThemeButton } from './styles';
 
-const NavButtons = () => {
+const NavButtons = ({ isDarkMode, themeHandler }) => {
   const [labelsVisibility, setLabelsVisibility] = useState(false);
 
   const toggleLabelsVisibility = (e) => {
@@ -28,12 +28,14 @@ const NavButtons = () => {
 
   return (
     <ButtonsWrapper>
-      <CartButton>
+      <CartButton activeClassName='activeLink' to='./cart'>
         <span className='button_quantity'>3</span>
         <span className={labelsVisibility ? '' : 'sr-only'}>Your cart</span>
       </CartButton>
-      <ThemeButton>
-        <span className={labelsVisibility ? '' : 'sr-only'}>Dark mode</span>
+      <ThemeButton onClick={themeHandler}>
+        <span className={labelsVisibility ? '' : 'sr-only'}>
+          {isDarkMode ? 'Light' : 'Dark'} mode
+        </span>
       </ThemeButton>
     </ButtonsWrapper>
   );

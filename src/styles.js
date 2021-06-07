@@ -24,13 +24,10 @@ export const displayCardAnimation = keyframes`
 export const Loader = styled.div`
   margin: 0 auto;
   border: ${(props) => props.size || '0.7rem'} solid
-    ${(props) => props.color || '#fff'};
-  border-top: ${(props) => props.size || '0.7rem'} solid
-    ${(props) => props.spinnerColor || 'black'};
-  border-bottom: ${(props) => props.size || '0.7rem'} solid
-    ${(props) => props.spinnerColor || 'black'};
+    ${({ theme }) => theme.body.secondaryColor};
+  border-bottom: ${(props) => props.size || '0.7rem'} solid transparent;
   border-radius: 50%;
   width: 12rem;
   height: 12rem;
-  animation: ${spin} ${(props) => props.time || '1'}s linear infinite;
+  animation: ${spin} ${(props) => props.time || '2'}s linear infinite;
 `;

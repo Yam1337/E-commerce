@@ -8,8 +8,8 @@ const NavBarWrapper = styled.nav`
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  color: #181818;
-  background-color: #f5f5f5;
+  color: ${({ theme }) => theme.navbar.primaryColor};
+  background-color: ${({ theme }) => theme.navbar.background};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
 `;
 

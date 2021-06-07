@@ -1,10 +1,15 @@
+import { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Redirect,
   Route,
   Switch,
 } from 'react-router-dom';
-import './App.css';
+
+import { ThemeProvider } from 'styled-components';
+import { lightMode, darkMode } from './utils/themes';
+import GlobalStyle from './utils/globalStyles';
+
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import HomePage from './containers/HomePage';
@@ -15,10 +20,36 @@ import ErrorPage from './containers/ErrorPage';
 import ProfilePage from './containers/ProfilePage';
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(null);
+
+  useEffect(() => {
+    if (isDarkMode !== null) {
+      localStorage.setItem('darkMode', isDarkMode);
+    }
+  }, [isDarkMode]);
+
+  useEffect(() => {
+    const darkModeValue = JSON.parse(localStorage.getItem('darkMode'));
+    if (darkModeValue === null) {
+      const matchesDarkMode = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches;
+      setIsDarkMode(matchesDarkMode);
+    } else {
+      setIsDarkMode(darkModeValue);
+    }
+  }, []);
+
+  const themeToggler = () => {
+    setIsDarkMode((prevMode) => {
+      return !prevMode;
+    });
+  };
   return (
-    <>
+    <ThemeProvider theme={isDarkMode ? darkMode : lightMode}>
+      <GlobalStyle />
       <Router>
-        <NavBar />
+        <NavBar isDarkMode={isDarkMode} themeHandler={themeToggler} />
         <div className='app-container'>
           <Switch>
             <Route exact path='/'>
@@ -34,7 +65,7 @@ function App() {
         </div>
       </Router>
       <Footer />
-    </>
+    </ThemeProvider>
   );
 }
 

@@ -7,8 +7,8 @@ import {
   ButtonContentWrapper,
   IconImage,
   ButtonText,
-  ProductCount,
   ButtonCountWrapper,
+  Margin,
 } from './styles';
 import fetchData from './utils/fetchData';
 import addToCart from './utils/addToCart';
@@ -63,6 +63,7 @@ const ProductPage = ({ match }) => {
                   <ButtonText>Add to Cart</ButtonText>
                 </ButtonContentWrapper>
               </StandardButton>
+              <Margin />
               <ProductCounter
                 setItemCount={setItemCount}
                 itemCount={itemCount}

@@ -94,14 +94,17 @@ export const ButtonText = styled.div`
   display: flex;
 `;
 
-export const ProductCount = styled.input`
-  height: 62px;
-  width: 62px;
-  font-size: 48px;
-`;
-
 export const ButtonCountWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  @media (max-width: 1200px) {
+    max-width: 352px;
+    min-width: 290px;
+  }
+`;
+
+export const Margin = styled.div`
+  min-width: 5px;
+  max-width: 5px;
 `;

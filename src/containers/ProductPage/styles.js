@@ -93,3 +93,15 @@ export const IconImage = styled.img`
 export const ButtonText = styled.div`
   display: flex;
 `;
+
+export const ProductCount = styled.input`
+  height: 62px;
+  width: 62px;
+  font-size: 48px;
+`;
+
+export const ButtonCountWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;

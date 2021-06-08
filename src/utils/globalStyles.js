@@ -54,6 +54,14 @@ a {
   }
 }
 
+/* Chrome fix for changing input styling upon autocomplete suggestions applied*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color:${({ theme }) => theme.body.secondaryColor};
+  transition: background-color 0s ease-in-out 5000s;
+}
+
 `;
 
 export default GlobalStyle;

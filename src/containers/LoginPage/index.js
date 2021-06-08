@@ -3,18 +3,21 @@ import {
   Hello,
   ComponentWrapper,
   Input,
-  FormContainer,
-  InputWrapper,
-  Span,
-  LogButton,
+  FormWrapper,
+  LoginButton,
+  LoginButtonIcon,
+  Label,
   Error,
+  InputGroup,
 } from './styles';
 
 const LoginPage = ({ history }) => {
-  const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [error, setError] = useState(false);
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [nameError, setNameError] = useState('');
+  const [lastNameError, setLastNameError] = useState('');
+  const [emailError, setEmailError] = useState('');
 
   useEffect(() => {
     if (localStorage.getItem('authToken')) {
@@ -22,27 +25,53 @@ const LoginPage = ({ history }) => {
     }
   }, [history]);
 
-  const emailHandler = (e) => {
-    setEmail(e.target.value);
-    setError(false);
-  };
   const nameHandler = (e) => {
     setName(e.target.value);
-    setError(false);
-  };
-  const lastnameHandler = (e) => {
-    setLastname(e.target.value);
-    setError(false);
-  };
-  const joinHandler = (e) => {
-    e.preventDefault();
-    if (handleValidation()) {
-      localStorage.setItem('authToken', 'some token');
-      localStorage.setItem('email', email);
-      localStorage.setItem('name', name);
-      localStorage.setItem('lastname', lastname);
-      history.push('/profile');
+
+    if (!e.target.value) {
+      setNameError('Please provide the value');
+      return;
     }
+
+    if (validateInput(e.target.value)) {
+      setNameError('');
+      return;
+    }
+    setNameError('Please keep it 3-15 letters, no special characters');
+  };
+
+  const lastNameHandler = (e) => {
+    setLastName(e.target.value);
+
+    if (!e.target.value) {
+      setLastNameError('Please provide the value');
+      return;
+    }
+
+    if (validateInput(e.target.value)) {
+      setLastNameError('');
+      return;
+    }
+    setLastNameError('Please keep it 3-15 letters, no special characters');
+  };
+
+  const emailHandler = (e) => {
+    setEmail(e.target.value);
+
+    if (!e.target.value) {
+      setEmailError('Please provide the value');
+      return;
+    }
+
+    if (validateEmail(e.target.value)) {
+      setEmailError('');
+      return;
+    }
+    setEmailError('E-mail address you provided seems invalid');
+  };
+
+  const validateInput = (item) => {
+    return item.match(/^[a-z|ąęóżźłćśń]{3,15}$/i);
   };
 
   const validateEmail = (item) => {
@@ -51,54 +80,79 @@ const LoginPage = ({ history }) => {
     return pattern.test(String(item).toLowerCase());
   };
 
-  const validateInput = (item) => {
-    return item.length < 15 && item.length >= 3 && !item.match(/[0-9]/);
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    if (handleValidation()) {
+      localStorage.setItem('authToken', 'some token');
+      localStorage.setItem('name', name);
+      localStorage.setItem('lastname', lastName);
+      localStorage.setItem('email', email);
+      history.push('/profile');
+    }
   };
 
   const handleValidation = () => {
-    if (validateEmail(email) && validateInput(name) && validateInput(lastname))
-      return true;
-    setError(true);
-    return false;
+    if (!name || !lastName || !email) {
+      if (!name) {
+        setNameError(() => 'Please provide the value');
+      }
+      if (!lastName) {
+        setLastNameError('Please provide the value');
+      }
+      if (!email) {
+        setEmailError('Please provide the value');
+      }
+      return false;
+    }
+
+    if (nameError || lastNameError || emailError) {
+      return false;
+    }
+
+    return true;
   };
 
   return (
-    <>
-      <ComponentWrapper>
-        <FormContainer>
-          <Hello>Login</Hello>
-          <InputWrapper>
-            {error && (
-              <Error>Check your inputs, some of them might be incorrect!</Error>
-            )}
-            <Span>Email:</Span>
-            <Input
-              type='text'
-              placeholder='Enter e-mail'
-              value={email}
-              onChange={emailHandler}
-            />
-
-            <Span>Name:</Span>
-            <Input
-              type='text'
-              placeholder='Enter name'
-              value={name}
-              onChange={nameHandler}
-            />
-
-            <Span>Lastname:</Span>
-            <Input
-              type='text'
-              placeholder='Enter lastname'
-              value={lastname}
-              onChange={lastnameHandler}
-            />
-            <LogButton onClick={joinHandler}>Join!</LogButton>
-          </InputWrapper>
-        </FormContainer>
-      </ComponentWrapper>
-    </>
+    <ComponentWrapper>
+      <Hello>Login page</Hello>
+      <FormWrapper onSubmit={submitHandler}>
+        <InputGroup>
+          <Input
+            value={name}
+            onChange={nameHandler}
+            id='firstname'
+            placeholder=' '
+          />
+          <Label htmlFor='firstname'>First name</Label>
+          <Error>{nameError}</Error>
+        </InputGroup>
+        <InputGroup>
+          <Input
+            value={lastName}
+            onChange={lastNameHandler}
+            id='lastname'
+            placeholder=' '
+          />
+          <Label htmlFor='lastname'>Last name</Label>
+          <Error>{lastNameError}</Error>
+        </InputGroup>
+        <InputGroup>
+          <Input
+            value={email}
+            onChange={emailHandler}
+            id='email'
+            placeholder=' '
+          />
+          <Label htmlFor='email'>E-mail address</Label>
+          <Error>{emailError}</Error>
+        </InputGroup>
+        <LoginButton>
+          <LoginButtonIcon />
+          Sign in
+        </LoginButton>
+      </FormWrapper>
+    </ComponentWrapper>
   );
 };
 

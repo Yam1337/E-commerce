@@ -1,9 +1,13 @@
-import { Hello, ComponentWrapper, Info } from './styles';
-import { LogButton } from '../LoginPage/styles';
+import { Hello, Info } from './styles';
+import {
+  ComponentWrapper,
+  LogoutButton,
+  LogoutButtonIcon,
+} from '../LoginPage/styles';
 
 const ProfilePage = ({ history }) => {
   const infoData =
-    "We shall be gratefull if you will leave some feedback on our FB to make our developer's life harder :)";
+    "We would be grateful if you left some feedback on our FB to make our developer's life harder :)";
 
   const logoutHandler = () => {
     localStorage.removeItem('authToken');
@@ -14,17 +18,23 @@ const ProfilePage = ({ history }) => {
   };
 
   return (
-    <>
-      <ComponentWrapper>
-        <Hello>
-          {`Hello,
-            ${localStorage.getItem('name') || ''}
-            ${localStorage.getItem('lastname') || ''}!`}
-        </Hello>
-        <Info>{infoData}</Info>
-        <LogButton onClick={logoutHandler}>Logout</LogButton>
-      </ComponentWrapper>
-    </>
+    <ComponentWrapper>
+      <Hello>
+        Hello,
+        <br />
+        <span>
+          {` ${localStorage.getItem('name') || ''} ${
+            localStorage.getItem('lastname') || ''
+          }!`}
+        </span>
+      </Hello>
+      <Info>{infoData}</Info>
+
+      <LogoutButton onClick={logoutHandler}>
+        <LogoutButtonIcon />
+        Sign out
+      </LogoutButton>
+    </ComponentWrapper>
   );
 };
 

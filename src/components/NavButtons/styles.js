@@ -40,13 +40,30 @@ const baseButtonStyles = css`
     margin-right: 6rem;
   }
 
-  span {
+  span:last-of-type {
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
     width: max-content;
   }
+`;
+
+export const ButtonQuantity = styled.span`
+  position: absolute;
+  top: -50%;
+  left: 70%;
+  display: block;
+  color: white;
+  background-color: crimson;
+  height: 2.4rem;
+  width: 2.4rem;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.3rem;
 `;
 
 export const CartButton = styled(NavLink)`
@@ -59,27 +76,10 @@ export const CartButton = styled(NavLink)`
     background-position-x: right;
   }
 
-  &:hover .button_quantity,
-  &:focus .button_quantity {
+  &:hover ${ButtonQuantity}, &:focus ${ButtonQuantity} {
     background-color: ${({ theme }) =>
       theme.lightMode ? theme.navbar.primaryColor : theme.navbar.primaryColor};
     color: ${({ theme }) => theme.navbar.background};
-  }
-
-  .button_quantity {
-    top: -40%;
-    left: 100%;
-    display: block;
-    color: white;
-    background-color: crimson;
-    height: 2.4rem;
-    width: 2.4rem;
-    display: flex;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-size: 1.3rem;
   }
 `;
 

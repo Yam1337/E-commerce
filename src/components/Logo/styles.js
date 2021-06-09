@@ -7,6 +7,7 @@ export const LogoLink = styled.a`
   color: ${({ theme }) => theme.navbar.primaryColor};
   font-size: 2rem;
   display: flex;
+  outline: none;
   font-weight: ${({ theme }) =>
     theme.lightMode ? theme.fontWeights.bold : theme.fontWeights.normal};
   align-items: center;
@@ -19,6 +20,16 @@ export const LogoLink = styled.a`
 
   @media (min-width: 950px) {
     font-size: 2.8rem;
+  }
+
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.navbar.hoverColor};
+  }
+
+  &:hover div,
+  &:focus div {
+    background-position: center;
   }
 `;
 

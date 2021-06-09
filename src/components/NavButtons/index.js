@@ -28,7 +28,7 @@ const NavButtons = ({ isDarkMode, themeHandler }) => {
 
   return (
     <ButtonsWrapper>
-      <CartButton activeClassName='activeLink' to='./cart'>
+      <CartButton activeClassName='activeLink' to='/cart'>
         <span className='button_quantity'>3</span>
         <span className={labelsVisibility ? '' : 'sr-only'}>Your cart</span>
       </CartButton>

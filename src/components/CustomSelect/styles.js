@@ -3,15 +3,16 @@ import styled from 'styled-components';
 export const Select = styled.select`
   background-color: ${({ theme }) => theme.body.background};
   border: 0;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-right: 2px solid ${({ theme }) => theme.body.primaryColor};
+  border-bottom: 2px solid ${({ theme }) => theme.body.primaryColor};
   border-radius: 5px;
   color: ${({ theme }) => theme.body.primaryColor};
   font-family: ${({ theme }) => theme.fontFamilies.textFont}, 'sans-serif';
   font-size: calc(1.7rem + 0.15vw);
+  cursor: pointer;
 `;
 
-export const SortWrapper = styled.div`
+export const SelectWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;

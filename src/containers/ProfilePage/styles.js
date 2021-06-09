@@ -1,21 +1,41 @@
 import styled from 'styled-components';
 
+export const Info = styled.p`
+  font-size: 1.4rem;
+  color: ${({ theme }) => theme.body.primaryColor};
+  text-align: center;
+
+  @media (min-width: 520px) {
+    font-size: 1.6rem;
+  }
+`;
+
 export const Hello = styled.h1`
   text-align: center;
-  color: ${(props) => props.color || 'black'}};
-  font-size: calc(3rem + 0.6vw);
-`;
+  color: ${({ theme }) => theme.body.secondaryColor};
+  font-size: 2rem;
+  font-weight: normal;
+  margin-bottom: 2rem;
 
-export const ComponentWrapper = styled.div`
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-`;
+  @media (min-width: 520px) {
+    font-size: 2.4rem;
+  }
 
-export const Info = styled.p`
-  font-size: calc(1.5rem + 0.4vw);
-  color: ${(props) => props.color || 'black'}};
-  margin-top: 2.5rem;
-  text-align: center;
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+
+  span {
+    color: ${({ theme }) => theme.body.errorColor};
+    font-size: 2.4rem;
+    font-weight: bold;
+
+    @media (min-width: 520px) {
+      font-size: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 3.4rem;
+    }
+  }
 `;

@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
+  Redirect,
 } from 'react-router-dom';
 
 import { ThemeProvider } from 'styled-components';
@@ -54,7 +55,10 @@ function App() {
         <NavBar isDarkMode={isDarkMode} themeHandler={themeToggler} />
         <div className='app-container'>
           <Switch>
-            <Route exact path={['/', '/home']} component={HomePage} />
+            <Route exact path='/'>
+              <Redirect to='/home' />
+            </Route>
+            <Route path='/home' component={HomePage} />
             <Route exact path='/categories' component={CategoriesPage} />
             <Route exact path='/category/:id' component={CategoryPage} />
             <Route exact path='/product/:id' component={ProductPage} />

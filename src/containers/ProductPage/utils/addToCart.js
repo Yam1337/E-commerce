@@ -1,17 +1,16 @@
 const addToCart = (productDetails, itemCount) => {
-  const myProduct = [{ ...productDetails }];
-  myProduct[0].count = itemCount;
+  const myProduct = { ...productDetails };
+  myProduct.count = itemCount;
 
   if (localStorage.getItem('userCart') === null) {
-    const cartProduct = JSON.stringify(myProduct);
+    const cartProduct = JSON.stringify([myProduct]);
     localStorage.setItem('userCart', cartProduct);
     return;
   }
 
   const actualCart = localStorage.getItem('userCart');
   const parsedCart = JSON.parse(actualCart);
-  const myProductObj = myProduct[0];
-  const objIndex = parsedCart.findIndex((x) => x.id === myProductObj.id);
+  const objIndex = parsedCart.findIndex((x) => x.id === myProduct.id);
 
   if (objIndex >= 0) {
     parsedCart[objIndex].count += itemCount;
@@ -20,7 +19,7 @@ const addToCart = (productDetails, itemCount) => {
     return;
   }
 
-  parsedCart.push(myProductObj);
+  parsedCart.push(myProduct);
   const cartProduct = JSON.stringify(parsedCart);
   localStorage.setItem('userCart', cartProduct);
 };

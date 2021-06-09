@@ -2,10 +2,10 @@ import styled, { keyframes } from 'styled-components';
 
 const spin = keyframes`
   from {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 `;
 
@@ -27,6 +27,9 @@ export const Loader = styled.div`
     ${({ theme }) => theme.body.secondaryColor};
   border-bottom: ${(props) => props.size || '0.7rem'} solid transparent;
   border-radius: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   width: 12rem;
   height: 12rem;
   animation: ${spin} ${(props) => props.time || '2'}s linear infinite;

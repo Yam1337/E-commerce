@@ -5,24 +5,24 @@ const ProductCounter = ({ setItemCount, itemCount }) => {
     <CounterWrapper>
       <ChangeButton
         onClick={() => {
-          if (itemCount <= 9) {
-            setItemCount(itemCount + 1);
-          }
-        }}
-      >
-        +
-      </ChangeButton>
-      <Counter>
-        <div>{itemCount}</div>
-      </Counter>
-      <ChangeButton
-        onClick={() => {
           if (itemCount > 1) {
             setItemCount(itemCount - 1);
           }
         }}
       >
         -
+      </ChangeButton>
+      <Counter>
+        <div>{itemCount}</div>
+      </Counter>
+      <ChangeButton
+        onClick={() => {
+          if (itemCount <= 9) {
+            setItemCount(itemCount + 1);
+          }
+        }}
+      >
+        +
       </ChangeButton>
     </CounterWrapper>
   );

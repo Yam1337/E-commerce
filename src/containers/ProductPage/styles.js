@@ -5,10 +5,13 @@ export const ProductDetailsPageWrapper = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 200px);
   min-height: 500px;
   @media (max-width: 1200px) {
     flex-direction: column-reverse;
+  }
+  @media (max-width: 520px) {
+    height: 100vh;
   }
 `;
 

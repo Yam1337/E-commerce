@@ -51,12 +51,12 @@ const ProductPage = ({ match }) => {
             <div>{`Material: ${productDetails.material}`}</div>
             <div>{productDetails.description}</div>
 
-            {/* TODO: ADD HERE ADDTOCART FUNCTION */}
             <ButtonCountWrapper>
               <StandardButton
                 onClick={() => {
                   setItemCount(1);
                   addToCart(productDetails, itemCount);
+                  // TODO: ADD ANIMATION
                 }}
               >
                 <ButtonContentWrapper>

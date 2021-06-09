@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import facebookIcon from '../../assets/icons/facebookIcon.svg';
-import twitterIcon from '../../assets/icons/twitterIcon.svg';
-import instagramIcon from '../../assets/icons/instagramIcon.svg';
-import youtubeIcon from '../../assets/icons/youtubeIcon.svg';
+import facebookIcons from '../../assets/icons/facebookIcons.svg';
+import twitterIcons from '../../assets/icons/twitterIcons.svg';
+import instagramIcons from '../../assets/icons/instagramIcons.svg';
+import youtubeIcons from '../../assets/icons/youtubeIcons.svg';
 
 const FooterWrapper = styled.footer`
   height: 15rem;
@@ -35,18 +35,25 @@ const FooterWrapper = styled.footer`
       height: 2.4rem;
       background-size: cover;
       margin-bottom: 0.5rem;
+      outline: none;
+
+      &:hover,
+      &:focus {
+        background-position: bottom;
+        transform: scale(1.1);
+      }
 
       &--fb {
-        background-image: url(${facebookIcon});
+        background-image: url(${facebookIcons});
       }
       &--tw {
-        background-image: url(${twitterIcon});
+        background-image: url(${twitterIcons});
       }
       &--ig {
-        background-image: url(${instagramIcon});
+        background-image: url(${instagramIcons});
       }
       &--yt {
-        background-image: url(${youtubeIcon});
+        background-image: url(${youtubeIcons});
       }
     }
   }

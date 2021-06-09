@@ -17,6 +17,8 @@ import StandardButton from '../../components/StandardButton/styles';
 
 import deleteIcon from '../../assets/icons/delete.svg';
 
+import deleteFromCart from './utils/deleteFromCart';
+
 const ShopingCartPage = () => {
   const [myCart, setMyCart] = useState([]);
 
@@ -33,7 +35,8 @@ const ShopingCartPage = () => {
               <div key={item.id} style={{ position: 'relative' }}>
                 <ProductCardOverlay
                   onClick={() => {
-                    console.log(item.id);
+                    deleteFromCart(item.id);
+                    // TODO: ADD DELETE FROM CART FUNCTION
                   }}
                 >
                   <img src={deleteIcon} alt={`Delete ${item.name} from cart`} />
@@ -53,6 +56,7 @@ const ShopingCartPage = () => {
       </Container>
       <LineWrapper>
         <MarginLine />
+        {/* TODO: ADD FINISH ORDER FUNCTION */}
         <StandardButton>
           <ButtonCountWrapper>
             <IconImage src={deleteIcon} alt='Delete from Cart Icon' />

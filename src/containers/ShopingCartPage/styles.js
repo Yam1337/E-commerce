@@ -26,6 +26,7 @@ export const GridContainer = styled.div`
   margin-top: 6rem;
   grid-gap: 4rem 12rem;
   grid-template-columns: 55rem 55rem;
+  grid-auto-rows: minmax(12rem, 0.5fr);
 
   @media (max-width: 1200px) {
     justify-content: center;
@@ -90,6 +91,9 @@ export const ProductCardOverlay = styled.div`
   }
   transition: opacity 0.5s;
   img {
+    display: flex;
+    justify-content: center;
+    align-content: center;
     width: 40%;
     margin-bottom: 20px;
     opacity: 100%;
@@ -121,6 +125,8 @@ export const LineWrapper = styled.div`
 
 export const IconImage = styled.img`
   display: flex;
+  justify-content: center;
+  align-content: center;
   height: 3.2rem;
   width: 3.2rem;
   object-fit: cover;

@@ -22,7 +22,6 @@ export const Container = styled.div`
 export const GridContainer = styled.div`
   display: grid;
   width: 80vh;
-  -webkit-overflow-scrolling: touch;
   height: 100vh;
   justify-content: center;
   width: 80rem;
@@ -52,6 +51,8 @@ export const GridContainer = styled.div`
     margin: 3rem 2rem;
     grid-template-columns: 28rem;
     width: 32rem;
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
   }
 
   * {

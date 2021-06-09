@@ -95,13 +95,13 @@ const LoginPage = ({ history }) => {
   const handleValidation = () => {
     if (!name || !lastName || !email) {
       if (!name) {
-        setNameError(() => 'Please provide the value');
+        setNameError(() => 'Please provide your first name');
       }
       if (!lastName) {
-        setLastNameError('Please provide the value');
+        setLastNameError('Please provide your last name');
       }
       if (!email) {
-        setEmailError('Please provide the value');
+        setEmailError('Please provide your e-mail address');
       }
       return false;
     }

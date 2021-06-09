@@ -55,7 +55,8 @@ const ProductPage = ({ match }) => {
             <ButtonCountWrapper>
               <StandardButton
                 onClick={() => {
-                  addToCart(productDetails);
+                  setItemCount(1);
+                  addToCart(productDetails, itemCount);
                 }}
               >
                 <ButtonContentWrapper>

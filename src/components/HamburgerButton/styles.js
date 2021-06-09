@@ -15,6 +15,11 @@ const Button = styled.button`
   align-items: center;
   justify-content: space-between;
 
+  &:hover .line,
+  &:focus .line {
+    background-color: ${({ theme }) => theme.navbar.hoverColor};
+  }
+
   @media (min-width: 768px) {
     display: none;
   }
@@ -23,7 +28,7 @@ const Button = styled.button`
     display: block;
     width: 100%;
     height: 0.2rem;
-    background: ${({ theme }) => theme.navbar.primaryColor};
+    background-color: ${({ theme }) => theme.navbar.primaryColor};
     border-radius: 0.2rem;
     transition: transform 0.7s ease, opacity 0.5s ease;
   }

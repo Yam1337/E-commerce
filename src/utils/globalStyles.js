@@ -31,7 +31,7 @@ a {
       theme.lightMode ? theme.fontWeights.bold : theme.fontWeights.normal};
 
     .activeLinkIcon {
-      background-position: ${({ theme }) =>
+      background-position-y: ${({ theme }) =>
         theme.lightMode ? 'top' : 'bottom'};
     }
   }

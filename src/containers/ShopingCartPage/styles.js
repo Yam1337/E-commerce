@@ -99,7 +99,7 @@ export const ProductCardOverlay = styled.div`
     display: flex;
     justify-content: center;
     align-content: center;
-    width: 40%;
+    height: 40%;
     margin-bottom: 20px;
     opacity: 100%;
   }

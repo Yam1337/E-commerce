@@ -53,17 +53,18 @@ const ShopingCartPage = () => {
             );
           })}
         </GridContainer>
+
+        <LineWrapper>
+          <MarginLine />
+          {/* TODO: ADD FINISH ORDER FUNCTION */}
+          <StandardButton>
+            <ButtonCountWrapper>
+              <IconImage src={deleteIcon} alt='Delete from Cart Icon' />
+              <ButtonText>Finish order</ButtonText>
+            </ButtonCountWrapper>
+          </StandardButton>
+        </LineWrapper>
       </Container>
-      <LineWrapper>
-        <MarginLine />
-        {/* TODO: ADD FINISH ORDER FUNCTION */}
-        <StandardButton>
-          <ButtonCountWrapper>
-            <IconImage src={deleteIcon} alt='Delete from Cart Icon' />
-            <ButtonText>Finish order</ButtonText>
-          </ButtonCountWrapper>
-        </StandardButton>
-      </LineWrapper>
     </ComponentWrapper>
   );
 };

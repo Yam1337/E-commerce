@@ -21,6 +21,9 @@ export const Container = styled.div`
 
 export const GridContainer = styled.div`
   display: grid;
+  width: 80vh;
+  -webkit-overflow-scrolling: touch;
+  height: 100vh;
   justify-content: center;
   width: 80rem;
   margin-top: 6rem;
@@ -86,6 +89,7 @@ export const ProductCardOverlay = styled.div`
   right: 0;
   background-color: #181818;
   opacity: 0%;
+  z-index: 1;
   &:hover {
     opacity: 70%;
   }
@@ -104,7 +108,7 @@ export const MarginLine = styled.div`
   background-color: #181818;
   display: flex;
   align-self: center;
-  width: 80%;
+  width: 80vw;
   height: 1px;
   margin-bottom: 20px;
 `;
@@ -139,8 +143,4 @@ export const ButtonCountWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  @media (max-width: 1200px) {
-    max-width: 352px;
-    min-width: 290px;
-  }
 `;

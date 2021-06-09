@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
-import { ButtonsWrapper, CartButton, ThemeButton } from './styles';
+import {
+  ButtonsWrapper,
+  ButtonQuantity,
+  CartButton,
+  ThemeButton,
+} from './styles';
 
 const NavButtons = ({ isDarkMode, themeHandler }) => {
   const [labelsVisibility, setLabelsVisibility] = useState(false);
@@ -29,7 +34,7 @@ const NavButtons = ({ isDarkMode, themeHandler }) => {
   return (
     <ButtonsWrapper>
       <CartButton activeClassName='activeLink' to='/cart'>
-        <span className='button_quantity'>3</span>
+        <ButtonQuantity>3</ButtonQuantity>
         <span className={labelsVisibility ? '' : 'sr-only'}>Your cart</span>
       </CartButton>
       <ThemeButton onClick={themeHandler}>

@@ -15,16 +15,19 @@ const baseButtonStyles = css`
   position: relative;
   background-color: unset;
   border: none;
+  outline: none;
   width: 2.5rem;
   height: 2.5rem;
-  background-size: 200% 200%;
+  background-size: cover;
   color: ${({ theme }) => theme.navbar.primaryColor};
-  background-position: ${({ theme }) => (theme.lightMode ? 'top' : 'bottom')};
+  background-position-y: ${({ theme }) => (theme.lightMode ? 'top' : 'bottom')};
   font-weight: ${({ theme }) =>
     theme.lightMode ? theme.fontWeights.bold : theme.fontWeights.normal};
 
-  &:hover {
+  &:hover,
+  &:focus {
     cursor: pointer;
+    color: ${({ theme }) => theme.navbar.hoverColor};
   }
 
   @media (min-width: 520px) {
@@ -37,7 +40,7 @@ const baseButtonStyles = css`
     margin-right: 6rem;
   }
 
-  span {
+  span:last-of-type {
     position: absolute;
     top: 100%;
     left: 50%;
@@ -46,17 +49,47 @@ const baseButtonStyles = css`
   }
 `;
 
+export const ButtonQuantity = styled.span`
+  position: absolute;
+  top: -50%;
+  left: 70%;
+  display: block;
+  color: white;
+  background-color: crimson;
+  height: 2.4rem;
+  width: 2.4rem;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.3rem;
+`;
+
 export const CartButton = styled(NavLink)`
   ${baseButtonStyles}
   background-image: url(${cartIcons});
 
-  .button_quantity {
-    top: -40%;
-    left: 100%;
+  &:hover,
+  &:focus {
+    background-position-y: center;
+    background-position-x: right;
+  }
+
+  &:hover ${ButtonQuantity}, &:focus ${ButtonQuantity} {
+    background-color: ${({ theme }) =>
+      theme.lightMode ? theme.navbar.primaryColor : theme.navbar.primaryColor};
+    color: ${({ theme }) => theme.navbar.background};
   }
 `;
 
 export const ThemeButton = styled.button`
   ${baseButtonStyles}
   background-image: url(${modeIcons});
+  background-size: 200% 200%;
+
+  &:hover,
+  &:focus {
+    background-position-x: right;
+  }
 `;

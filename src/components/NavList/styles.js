@@ -51,7 +51,18 @@ export const List = styled.ul`
 export const NavLinkWrapper = styled(NavLink)`
   display: flex;
   align-items: center;
+  outline: none;
   margin-right: 1rem;
+
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.navbar.hoverColor};
+  }
+
+  &:hover div,
+  &:focus div {
+    background-position-x: right;
+  }
 
   @media (min-width: 950px) {
     margin-right: 3rem;
@@ -65,8 +76,9 @@ export const NavLinkWrapper = styled(NavLink)`
 export const LinkIcon = styled.div`
   width: 3.5rem;
   height: 3.5rem;
-  background-position: center;
-  background-size: cover;
+  background-position-y: center;
+  background-position-x: left;
+  background-size: 200% 300%;
   background-image: url(${(props) => {
     switch (props.iconName) {
       case 'Home': {

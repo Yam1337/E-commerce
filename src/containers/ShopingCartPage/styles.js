@@ -60,20 +60,13 @@ export const GridContainer = styled.div`
   }
 `;
 
-export const Title = styled.h1`
-  font-size: 3rem;
-  position: absolute;
-  left: 5rem;
-  top: 11rem;
-  margin-bottom: 3rem;
-  @media (max-width: 600px) {
-    position: static;
-    margin-top: 2rem;
-  }
-`;
+export const Title = styled.div`
+  color: ${({ theme }) => theme.body.primaryColor};
+  font-size: 2.8rem;
 
-export const NavLink = styled(Link)`
-  text-decoration: none;
+  @media (min-width: 1200px) {
+    font-size: 3.6rem;
+  }
 `;
 
 export const ProductCardOverlay = styled.div`
@@ -81,32 +74,33 @@ export const ProductCardOverlay = styled.div`
   text-align: center;
   flex-direction: column;
   justify-content: center;
-  font-size: calc(1.1em + 0.5vw);
+  width: 34px;
+  height: 34px;
   align-items: center;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 3%;
+  left: calc(97% - 34px);
   bottom: 0;
   right: 0;
   background-color: #181818;
-  opacity: 0%;
   z-index: 1;
+  border-radius: 50%;
   &:hover {
-    opacity: 70%;
+    opacity: 100%;
+    transform: scale(1.1);
   }
-  transition: opacity 0.5s;
+  transition: transform 0.5s;
   img {
     display: flex;
     justify-content: center;
     align-content: center;
-    height: 40%;
-    margin-bottom: 20px;
-    opacity: 100%;
+    height: 16px;
+    width: 14px;
   }
 `;
 
 export const MarginLine = styled.div`
-  background-color: #181818;
+  background-color: ${({ theme }) => theme.body.primaryColor};
   display: flex;
   align-self: center;
   width: 80vw;
@@ -114,11 +108,6 @@ export const MarginLine = styled.div`
   margin-bottom: 20px;
 `;
 
-export const DeleteText = styled.div`
-  opacity: 100%;
-  color: #f5f5f5;
-  text-align: center;
-`;
 export const LineWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -130,8 +119,6 @@ export const LineWrapper = styled.div`
 
 export const IconImage = styled.img`
   display: flex;
-  justify-content: center;
-  align-content: center;
   height: 3.2rem;
   width: 3.2rem;
   object-fit: cover;
@@ -144,4 +131,13 @@ export const ButtonCountWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+`;
+export const Info = styled.p`
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: ${({ theme }) => theme.body.primaryColor};
+
+  @media (min-width: 1200px) {
+    font-size: 2rem;
+  }
 `;

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   ProductDetailsPageWrapper,
   ProductImageWrapper,
@@ -21,6 +22,7 @@ import cartIcons from '../../assets/icons/cartIcons.svg';
 const ProductPage = ({ match }) => {
   const [loading, setLoading] = useState(true);
   const [itemCount, setItemCount] = useState(1);
+  const history = useHistory();
 
   useEffect(() => {
     const getData = async () => {
@@ -56,6 +58,7 @@ const ProductPage = ({ match }) => {
                 onClick={() => {
                   setItemCount(1);
                   addToCart(productDetails, itemCount);
+                  history.push('/cart');
                   // TODO: ADD ANIMATION
                 }}
               >

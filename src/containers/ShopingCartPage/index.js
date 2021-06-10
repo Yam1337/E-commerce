@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard';
+
 import {
   Title,
   GridContainer,
@@ -7,16 +9,16 @@ import {
   Container,
   ProductCardOverlay,
   MarginLine,
-  DeleteText,
   LineWrapper,
   IconImage,
   ButtonText,
   ButtonCountWrapper,
+  Info,
 } from './styles';
+
 import StandardButton from '../../components/StandardButton/styles';
-
-import deleteIcon from '../../assets/icons/delete.svg';
-
+import deleteIcons from '../../assets/icons/deleteIcons.svg';
+import bagIcon from '../../assets/icons/bagIcons.svg';
 import deleteFromCart from './utils/deleteFromCart';
 
 const ShopingCartPage = () => {
@@ -25,30 +27,49 @@ const ShopingCartPage = () => {
   useEffect(() => {
     setMyCart(JSON.parse(localStorage.getItem('userCart')));
   }, []);
+
+  if (myCart === null || myCart.length === 0) {
+    return (
+      <ComponentWrapper>
+        <Title>Your cart is empty</Title>
+        <Info>
+          Search for products you like, add them to your cart and store them
+          here safely
+        </Info>
+      </ComponentWrapper>
+    );
+  }
+
   return (
     <ComponentWrapper>
-      <Title>My cart</Title>
+      <Title>
+        <b>Cart</b>
+        {` - ${myCart.length} saved products`}
+      </Title>
       <Container>
         <GridContainer>
           {myCart.map((item) => {
             return (
               <div key={item.id} style={{ position: 'relative' }}>
                 <ProductCardOverlay
-                  onClick={() => {
-                    deleteFromCart(item.id);
-                    // TODO: ADD DELETE FROM CART FUNCTION
+                  onClick={(e) => {
+                    setMyCart(deleteFromCart(item.id, myCart));
                   }}
                 >
-                  <img src={deleteIcon} alt={`Delete ${item.name} from cart`} />
-                  <DeleteText>{`Delete ${item.name} from cart`}</DeleteText>
+                  <img
+                    src={deleteIcons}
+                    alt={`Delete ${item.name} from cart`}
+                  />
                 </ProductCardOverlay>
-                <ProductCard
-                  width='100%'
-                  height='100%'
-                  image={item.image}
-                  name={`${item.count}x ${item.name}`}
-                  price={`Total: ${item.count * item.price}`}
-                />
+                <Link to={`/product/${item.id}`} key={item.id}>
+                  <ProductCard
+                    width='100%'
+                    height='100%'
+                    image={item.image}
+                    name={`${item.count}x ${item.name}`}
+                    price={`Total: ${item.count * item.price}`}
+                  />
+                </Link>
               </div>
             );
           })}
@@ -59,7 +80,7 @@ const ShopingCartPage = () => {
           {/* TODO: ADD FINISH ORDER FUNCTION */}
           <StandardButton>
             <ButtonCountWrapper>
-              <IconImage src={deleteIcon} alt='Delete from Cart Icon' />
+              <IconImage src={bagIcon} alt='Delete from Cart Icon' />
               <ButtonText>Finish order</ButtonText>
             </ButtonCountWrapper>
           </StandardButton>

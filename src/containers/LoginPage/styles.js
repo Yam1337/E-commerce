@@ -133,7 +133,7 @@ const anime2 = keyframes`
     }
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   margin: 2rem 0;
   width: 100%;
   font-family: 'Poppins';

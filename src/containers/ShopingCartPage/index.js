@@ -15,6 +15,7 @@ import {
 import deleteIcons from '../../assets/icons/deleteIcons.svg';
 import deleteFromCart from './utils/deleteFromCart';
 import countPriceSum from './utils/countPriceSum';
+import countCountSum from './utils/countCountSum';
 import calculateDeliveryPrice from './utils/calculateDeliveryPrice';
 import finishOrder from './utils/finishOrder';
 
@@ -53,7 +54,7 @@ const ShopingCartPage = () => {
     <ComponentWrapper>
       <Title>
         <b>Cart</b>
-        {` - ${myCart.length} saved products`}
+        {` - ${countCountSum(myCart)} saved products`}
       </Title>
       <Container>
         <GridContainer>

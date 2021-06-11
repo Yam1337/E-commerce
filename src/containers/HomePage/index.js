@@ -33,16 +33,16 @@ const HomePage = () => {
           <Loader />
         ) : (
           <GridContainer>
-            {products.map((item) => {
+            {products?.map((item) => {
               return (
                 <NavLink to={`/product/${item.id}`} key={item.id}>
                   <ProductCard
                     key={item.name}
                     width='100%'
                     height='100%'
-                    image={item.image}
-                    name={item.name}
-                    price={item.price}
+                    image={item?.image}
+                    name={item?.name}
+                    price={item?.price}
                   />
                 </NavLink>
               );

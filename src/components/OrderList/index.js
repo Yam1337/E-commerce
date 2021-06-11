@@ -61,11 +61,9 @@ const OrderList = () => {
             </Li>
           ))}
           <CenterBox>
-            {
-              <Span>
-                {orders.length}/{count}
-              </Span>
-            }
+            <Span>
+              {orders.length}/{count}
+            </Span>
             {loader ? (
               <NavLoader />
             ) : (

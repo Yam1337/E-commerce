@@ -84,9 +84,9 @@ const ShopingCartPage = () => {
                   <ProductCard
                     width='100%'
                     height='100%'
-                    image={item.image}
-                    name={`${item.count}x ${item.name}`}
-                    price={`Total: ${item.count * item.price}`}
+                    image={item?.image}
+                    name={`${item?.count}x ${item?.name}`}
+                    price={`Total: ${item?.count * item?.price}`}
                   />
                 </Link>
               </div>

@@ -14,7 +14,7 @@ function ProductCard({ width, height, image, name, price }) {
       </ProductImageWrapper>
       <ProductDetailsWrapper>
         <div>{name}</div>
-        <PriceWrapper>{`${price},00 zł`}</PriceWrapper>
+        <PriceWrapper>{`${price} zł`}</PriceWrapper>
       </ProductDetailsWrapper>
     </ProductCardWrapper>
   );

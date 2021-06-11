@@ -49,6 +49,7 @@ export const TableWrapper = styled.div`
   width: ${(props) => props.width || '50%'};
   min-width: ${(props) => props.minWidth || '300px'};
   align-self: ${(props) => props.alignSelf || 'center'};
+  margin-top: 50px;
   @media (max-width: 600px) {
     width: ${(props) => props.mobileWidth || '100%'};
   }

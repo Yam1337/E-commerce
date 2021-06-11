@@ -17,6 +17,7 @@ const OrderDetailsTable = ({
   bottomText,
   minWidth,
   mobileWidth,
+  buttonFunction,
 }) => {
   return (
     <>
@@ -36,7 +37,14 @@ const OrderDetailsTable = ({
         <MarginLine />
         <BottomText>{bottomText}</BottomText>
         <ButtonWrapper>
-          <StandardButton width='400px'>Purchase products</StandardButton>
+          <StandardButton
+            width='400px'
+            onClick={() => {
+              buttonFunction();
+            }}
+          >
+            Purchase products
+          </StandardButton>
         </ButtonWrapper>
       </TableWrapper>
     </>

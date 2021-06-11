@@ -12,18 +12,29 @@ import {
   Info,
 } from './styles';
 
-import StandardButton from '../../components/StandardButton/styles';
 import deleteIcons from '../../assets/icons/deleteIcons.svg';
-import bagIcon from '../../assets/icons/bagIcons.svg';
 import deleteFromCart from './utils/deleteFromCart';
+import countPriceSum from './utils/countPriceSum';
+import calculateDeliveryPrice from './utils/calculateDeliveryPrice';
+import finishOrder from './utils/finishOrder';
 
 const ShopingCartPage = () => {
   const [myCart, setMyCart] = useState([]);
   const [orderValue, setOrderValue] = useState(0);
+  const [deliveryValue, setDeliveryValue] = useState(Number(19));
+  const [totalValue, setTotalValue] = useState(orderValue + deliveryValue);
+
+  if (JSON.parse(localStorage.getItem('userCart')) === null) {
+    localStorage.setItem('userCart', JSON.stringify([]));
+  }
 
   useEffect(() => {
     setMyCart(JSON.parse(localStorage.getItem('userCart')));
-  }, []);
+    setOrderValue(countPriceSum(myCart));
+    setTotalValue(orderValue + deliveryValue);
+    setDeliveryValue(calculateDeliveryPrice(myCart));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [myCart.length, orderValue, deliveryValue]);
 
   if (myCart === null || myCart.length === 0) {
     return (
@@ -76,11 +87,12 @@ const ShopingCartPage = () => {
           mobileWidth='100%'
           alignSelf='flex-end'
           cell1='Order value:'
-          cell2='2'
+          cell2={`${orderValue} zł`}
           cell3='Delivery:'
-          cell4='19 zł'
-          bottomText='Total:'
+          cell4={`${deliveryValue} zł`}
+          bottomText={`Total: ${totalValue} zł`}
           minWidth='280px'
+          buttonFunction={finishOrder}
         />
       </Container>
     </ComponentWrapper>

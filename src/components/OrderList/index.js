@@ -48,15 +48,15 @@ const OrderList = () => {
       <Title>YOUR ORDERS</Title>
       {error === '' ? (
         <ul>
-          {orders.map((item) => (
+          {orders?.map((item) => (
             <Li key={item.id}>
               <OrderItem
                 key={item.id}
                 id={item.id}
-                totalPrice={item.totalPrice}
-                status={item.status}
-                shippingPrice={item.shippingPrice}
-                products={item.products}
+                totalPrice={item?.totalPrice}
+                status={item?.status}
+                shippingPrice={item?.shippingPrice}
+                products={item?.products}
               />
             </Li>
           ))}
@@ -78,7 +78,7 @@ const OrderList = () => {
           </CenterBox>
         </ul>
       ) : (
-        <Error aria-live="polite">{error}</Error>
+        <Error aria-live='polite'>{error}</Error>
       )}
     </>
   );

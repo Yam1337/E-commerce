@@ -4,6 +4,7 @@ import {
   LogoutButton,
   LogoutButtonIcon,
 } from '../LoginPage/styles';
+import OrderList from '../../components/OrderList';
 
 const ProfilePage = ({ history }) => {
   const infoData =
@@ -34,6 +35,7 @@ const ProfilePage = ({ history }) => {
         <LogoutButtonIcon />
         Sign out
       </LogoutButton>
+      <OrderList />
     </ComponentWrapper>
   );
 };

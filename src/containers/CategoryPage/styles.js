@@ -20,8 +20,8 @@ export const GridContainer = styled.div`
   padding: 2rem 3% 2rem 3%;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(4, minmax(5rem, 0.5fr));
-  grid-auto-rows: minmax(12rem, 0.5fr);
+  grid-template-columns: repeat(4, minmax(25rem, 40rem));
+  grid-auto-rows: minmax(20rem, 35rem);
   grid-gap: 2rem 4%;
 
   * {
@@ -29,19 +29,19 @@ export const GridContainer = styled.div`
   }
 
   @media (max-width: 1200px) {
-    grid-template-columns: repeat(3, minmax(12rem, 0.9fr));
-    grid-auto-rows: minmax(12rem, 0.6fr);
+    grid-template-columns: repeat(3, minmax(23rem, 30rem));
+    grid-auto-rows: minmax(20rem, 28rem);
     margin-top: 1rem;
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, minmax(8rem, 0.9fr));
-    grid-auto-rows: minmax(8rem, 0.6fr);
+    grid-template-columns: repeat(2, minmax(25rem, 28rem));
+    grid-auto-rows: minmax(20rem, 25rem);
   }
 
   @media (max-width: 520px) {
-    grid-template-columns: minmax(16rem, 0.9fr);
-    grid-auto-rows: minmax(12rem, 0.6fr);
+    grid-template-columns: minmax(25rem, 30rem);
+    grid-auto-rows: minmax(20rem, 27rem);
   }
 `;
 

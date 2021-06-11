@@ -21,6 +21,7 @@ import ErrorPage from './containers/ErrorPage';
 import ProfilePage from './containers/ProfilePage';
 import ShopingCartPage from './containers/ShopingCartPage';
 import LoginPage from './containers/LoginPage';
+import UserDataProvider from './components/UserDataContext/UserDataContext';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(null);
@@ -49,28 +50,30 @@ function App() {
     });
   };
   return (
-    <ThemeProvider theme={isDarkMode ? darkMode : lightMode}>
-      <GlobalStyle />
-      <Router>
-        <NavBar isDarkMode={isDarkMode} themeHandler={themeToggler} />
-        <div className='app-container'>
-          <Switch>
-            <Route exact path='/'>
-              <Redirect to='/home' />
-            </Route>
-            <Route path='/home' component={HomePage} />
-            <Route exact path='/categories' component={CategoriesPage} />
-            <Route exact path='/category/:id' component={CategoryPage} />
-            <Route exact path='/product/:id' component={ProductPage} />
-            <Route exact path='/cart' component={ShopingCartPage} />
-            <Route exact path='/login' component={LoginPage} />
-            <PrivateRoute exact path='/profile' component={ProfilePage} />
-            <Route path='*' component={ErrorPage} />
-          </Switch>
-        </div>
-        <Footer />
-      </Router>
-    </ThemeProvider>
+    <UserDataProvider>
+      <ThemeProvider theme={isDarkMode ? darkMode : lightMode}>
+        <GlobalStyle />
+        <Router>
+          <NavBar isDarkMode={isDarkMode} themeHandler={themeToggler} />
+          <div className='app-container'>
+            <Switch>
+              <Route exact path='/'>
+                <Redirect to='/home' />
+              </Route>
+              <Route path='/home' component={HomePage} />
+              <Route exact path='/categories' component={CategoriesPage} />
+              <Route exact path='/category/:id' component={CategoryPage} />
+              <Route exact path='/product/:id' component={ProductPage} />
+              <Route exact path='/cart' component={ShopingCartPage} />
+              <Route exact path='/login' component={LoginPage} />
+              <PrivateRoute exact path='/profile' component={ProfilePage} />
+              <Route path='*' component={ErrorPage} />
+            </Switch>
+          </div>
+          <Footer />
+        </Router>
+      </ThemeProvider>
+    </UserDataProvider>
   );
 }
 

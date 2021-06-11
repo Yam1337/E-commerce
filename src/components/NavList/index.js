@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { List, NavLinkWrapper, LinkIcon, Error } from './styles';
 import NavLoader from '../NavLoader';
+import { UserNameContext } from '../UserDataContext/UserDataContext';
 
 const NavList = ({ isMenuOpen, handleClick }) => {
   const [menuLinks, setMenuLinks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadError, setIsLoadError] = useState(false);
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useContext(UserNameContext);
 
   useEffect(() => {
     const name = localStorage.getItem('name');

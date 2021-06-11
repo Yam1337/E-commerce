@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard';
 import OrderDetailsTable from '../../components/OrderDetailsTable/index';
+import { CartProductsNumberContext } from '../../components/UserDataContext/UserDataContext';
 
 import {
   Title,
@@ -25,6 +26,9 @@ const ShopingCartPage = () => {
   const [deliveryValue, setDeliveryValue] = useState(Number(19));
   const [totalValue, setTotalValue] = useState(orderValue + deliveryValue);
   const history = useHistory();
+  const [cartProductsNumber, setCartProductsNumber] = useContext(
+    CartProductsNumberContext
+  );
 
   if (JSON.parse(localStorage.getItem('userCart')) === null) {
     localStorage.setItem('userCart', JSON.stringify([]));
@@ -64,6 +68,11 @@ const ShopingCartPage = () => {
                 <ProductCardOverlay
                   onClick={(e) => {
                     setMyCart(deleteFromCart(item.id, myCart));
+                    setCartProductsNumber(
+                      countCountSum(
+                        JSON.parse(localStorage.getItem('userCart'))
+                      )
+                    );
                   }}
                 >
                   <img
@@ -97,6 +106,7 @@ const ShopingCartPage = () => {
           buttonFunction={() => {
             finishOrder(totalValue, deliveryValue);
             setMyCart([]);
+            setCartProductsNumber(0);
             history.push('/profile');
           }}
         />

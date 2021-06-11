@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import {
   Hello,
   ComponentWrapper,
@@ -10,6 +10,7 @@ import {
   Error,
   InputGroup,
 } from './styles';
+import { UserNameContext } from '../../components/UserDataContext/UserDataContext';
 
 const LoginPage = ({ history }) => {
   const [name, setName] = useState('');
@@ -18,6 +19,7 @@ const LoginPage = ({ history }) => {
   const [nameError, setNameError] = useState('');
   const [lastNameError, setLastNameError] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [userName, setUserName] = useContext(UserNameContext);
 
   useEffect(() => {
     if (localStorage.getItem('authToken')) {
@@ -110,6 +112,7 @@ const LoginPage = ({ history }) => {
       return false;
     }
 
+    setUserName(`${name}'s `);
     return true;
   };
 

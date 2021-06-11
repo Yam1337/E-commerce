@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import {
   ButtonsWrapper,
   ButtonQuantity,
   CartButton,
   ThemeButton,
 } from './styles';
+import { CartProductsNumberContext } from '../UserDataContext/UserDataContext';
 
 const NavButtons = ({ isDarkMode, themeHandler }) => {
   const [labelsVisibility, setLabelsVisibility] = useState(false);
+  const [cartProductsNumber] = useContext(CartProductsNumberContext);
 
   const toggleLabelsVisibility = (e) => {
     if (e.matches) {
@@ -34,7 +36,10 @@ const NavButtons = ({ isDarkMode, themeHandler }) => {
   return (
     <ButtonsWrapper>
       <CartButton activeClassName='activeLink' to='/cart'>
-        <ButtonQuantity>3</ButtonQuantity>
+        {cartProductsNumber > 0 ? (
+          <ButtonQuantity>{cartProductsNumber}</ButtonQuantity>
+        ) : null}
+
         <span className={labelsVisibility ? '' : 'sr-only'}>Your cart</span>
       </CartButton>
       <ThemeButton onClick={themeHandler}>

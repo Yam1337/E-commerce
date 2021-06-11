@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
   ProductDetailsPageWrapper,
@@ -16,6 +16,7 @@ import addToCart from './utils/addToCart';
 import StandardButton from '../../components/StandardButton/styles';
 import ProductCounter from '../../components/ProductCounter/index';
 import { Loader } from '../../styles';
+import { CartProductsNumberContext } from '../../components/UserDataContext/UserDataContext';
 
 import cartIcons from '../../assets/icons/cartIcons.svg';
 
@@ -23,6 +24,9 @@ const ProductPage = ({ match }) => {
   const [loading, setLoading] = useState(true);
   const [itemCount, setItemCount] = useState(1);
   const history = useHistory();
+  const [cartProductsNumber, setCartProductsNumber] = useContext(
+    CartProductsNumberContext
+  );
 
   useEffect(() => {
     const getData = async () => {
@@ -58,6 +62,7 @@ const ProductPage = ({ match }) => {
                 onClick={() => {
                   setItemCount(1);
                   addToCart(productDetails, itemCount);
+                  setCartProductsNumber((prevNumber) => prevNumber + itemCount);
                   history.push('/cart');
                   // TODO: ADD ANIMATION
                 }}

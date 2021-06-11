@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StandardButtonWrapper = styled.button`
-  width: 252px;
+  width: ${(props) => props.width || '252px'};
   height: 62px;
   background-color: ${({ theme }) => theme.body.primaryColor};
   color: ${({ theme }) => theme.body.background};

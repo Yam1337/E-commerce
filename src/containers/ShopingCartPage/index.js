@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard';
+import OrderDetailsTable from '../../components/OrderDetailsTable/index';
 
 import {
   Title,
@@ -8,11 +9,6 @@ import {
   ComponentWrapper,
   Container,
   ProductCardOverlay,
-  MarginLine,
-  LineWrapper,
-  IconImage,
-  ButtonText,
-  ButtonCountWrapper,
   Info,
 } from './styles';
 
@@ -23,6 +19,7 @@ import deleteFromCart from './utils/deleteFromCart';
 
 const ShopingCartPage = () => {
   const [myCart, setMyCart] = useState([]);
+  const [orderValue, setOrderValue] = useState(0);
 
   useEffect(() => {
     setMyCart(JSON.parse(localStorage.getItem('userCart')));
@@ -74,17 +71,17 @@ const ShopingCartPage = () => {
             );
           })}
         </GridContainer>
-
-        <LineWrapper>
-          <MarginLine />
-          {/* TODO: ADD FINISH ORDER FUNCTION */}
-          <StandardButton>
-            <ButtonCountWrapper>
-              <IconImage src={bagIcon} alt='Delete from Cart Icon' />
-              <ButtonText>Finish order</ButtonText>
-            </ButtonCountWrapper>
-          </StandardButton>
-        </LineWrapper>
+        <OrderDetailsTable
+          width='50%'
+          mobileWidth='100%'
+          alignSelf='flex-end'
+          cell1='Order value:'
+          cell2='2'
+          cell3='Delivery:'
+          cell4='19 zł'
+          bottomText='Total:'
+          minWidth='280px'
+        />
       </Container>
     </ComponentWrapper>
   );

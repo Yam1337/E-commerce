@@ -21,8 +21,8 @@ export const Container = styled.div`
 
 export const GridContainer = styled.div`
   display: grid;
-  width: 80vh;
-  height: 100vh;
+  width: 100vh;
+  height: 100%;
   justify-content: center;
   width: 80rem;
   margin-top: 6rem;
@@ -99,24 +99,6 @@ export const ProductCardOverlay = styled.div`
   }
 `;
 
-export const MarginLine = styled.div`
-  background-color: ${({ theme }) => theme.body.primaryColor};
-  display: flex;
-  align-self: center;
-  width: 80vw;
-  height: 1px;
-  margin-bottom: 20px;
-`;
-
-export const LineWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin: 20px 0px 20px 0px;
-`;
-
 export const IconImage = styled.img`
   display: flex;
   height: 3.2rem;
@@ -124,14 +106,7 @@ export const IconImage = styled.img`
   object-fit: cover;
   object-position: ${({ theme }) => (theme.lightMode ? 'bottom' : 'top')};
 `;
-export const ButtonText = styled.div`
-  display: flex;
-`;
-export const ButtonCountWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-`;
+
 export const Info = styled.p`
   margin-top: 1rem;
   font-size: 1.4rem;

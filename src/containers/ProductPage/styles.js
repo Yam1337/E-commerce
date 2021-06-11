@@ -5,10 +5,13 @@ export const ProductDetailsPageWrapper = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 200px);
   min-height: 500px;
   @media (max-width: 1200px) {
     flex-direction: column-reverse;
+  }
+  @media (max-width: 520px) {
+    height: 100vh;
   }
 `;
 
@@ -92,4 +95,19 @@ export const IconImage = styled.img`
 `;
 export const ButtonText = styled.div`
   display: flex;
+`;
+
+export const ButtonCountWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @media (max-width: 1200px) {
+    max-width: 352px;
+    min-width: 290px;
+  }
+`;
+
+export const Margin = styled.div`
+  min-width: 5px;
+  max-width: 5px;
 `;

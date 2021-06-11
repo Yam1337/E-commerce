@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard';
 import OrderDetailsTable from '../../components/OrderDetailsTable/index';
 
@@ -23,6 +23,7 @@ const ShopingCartPage = () => {
   const [orderValue, setOrderValue] = useState(0);
   const [deliveryValue, setDeliveryValue] = useState(Number(19));
   const [totalValue, setTotalValue] = useState(orderValue + deliveryValue);
+  const history = useHistory();
 
   if (JSON.parse(localStorage.getItem('userCart')) === null) {
     localStorage.setItem('userCart', JSON.stringify([]));
@@ -34,7 +35,7 @@ const ShopingCartPage = () => {
     setTotalValue(orderValue + deliveryValue);
     setDeliveryValue(calculateDeliveryPrice(myCart));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [myCart.length, orderValue, deliveryValue]);
+  }, [myCart.length, orderValue, deliveryValue, totalValue]);
 
   if (myCart === null || myCart.length === 0) {
     return (
@@ -92,7 +93,11 @@ const ShopingCartPage = () => {
           cell4={`${deliveryValue} zł`}
           bottomText={`Total: ${totalValue} zł`}
           minWidth='280px'
-          buttonFunction={finishOrder}
+          buttonFunction={() => {
+            finishOrder(totalValue, deliveryValue);
+            setMyCart([]);
+            history.push('/profile');
+          }}
         />
       </Container>
     </ComponentWrapper>

@@ -68,6 +68,10 @@ const CategoryPage = ({ match }) => {
     return page * itemsPerPage;
   };
 
+  const changePage = (value) => setPage(value);
+  const changeSort = (value) => setSort(value);
+  const changeItemsPerPage = (value) => setItemsPerPage(value);
+
   useEffect(() => {
     const fetchCount = async () => {
       if (count === 0) {
@@ -125,12 +129,12 @@ const CategoryPage = ({ match }) => {
               <Title>{`${category} category - ${count} products`}</Title>
               <div>
                 <CustomSelect
-                  state={[itemsPerPage, setItemsPerPage]}
+                  state={[itemsPerPage, changeItemsPerPage]}
                   title='DISPLAY ITEMS'
                   options={countOptions}
                 />
                 <CustomSelect
-                  state={[sort, setSort]}
+                  state={[sort, changeSort]}
                   title='SORTING BY'
                   options={sortOptions}
                 />
@@ -141,13 +145,13 @@ const CategoryPage = ({ match }) => {
             ) : (
               <>
                 <GridContainer>
-                  {products.map((item) => (
+                  {products?.map((item) => (
                     <Link to={`/product/${item.id}`} key={item.id}>
                       <ProductCard
                         key={item.id}
-                        image={item.image}
-                        price={item.price}
-                        name={item.name}
+                        image={item?.image}
+                        price={item?.price}
+                        name={item?.name}
                         height='100%'
                         width='100%'
                       />
@@ -155,7 +159,7 @@ const CategoryPage = ({ match }) => {
                   ))}
                 </GridContainer>
                 <PagerNav
-                  state={[page, setPage]}
+                  state={[page, changePage]}
                   itemsCount={count}
                   itemsPerPage={itemsPerPage}
                 />

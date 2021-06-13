@@ -46,12 +46,12 @@ const OrderItem = ({ id, totalPrice, products, shippingPrice }) => {
                   price={shippingPrice}
                 />
               )}
-              {products.map((item) => (
+              {products?.map((item) => (
                 <OrderProduct
                   key={item.id}
-                  name={item.name}
-                  image={item.image}
-                  price={item.price}
+                  name={item?.name}
+                  image={item?.image}
+                  price={item?.price}
                   id={item.id}
                 />
               ))}

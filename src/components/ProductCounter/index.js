@@ -6,7 +6,7 @@ const ProductCounter = ({ setItemCount, itemCount }) => {
       <ChangeButton
         onClick={() => {
           if (itemCount > 1) {
-            setItemCount(itemCount - 1);
+            setItemCount(-1);
           }
         }}
       >
@@ -18,7 +18,7 @@ const ProductCounter = ({ setItemCount, itemCount }) => {
       <ChangeButton
         onClick={() => {
           if (itemCount <= 9) {
-            setItemCount(itemCount + 1);
+            setItemCount(1);
           }
         }}
       >

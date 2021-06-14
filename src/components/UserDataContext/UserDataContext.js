@@ -15,8 +15,13 @@ export default function UserDataProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    const userCartObject = JSON.parse(localStorage.getItem('userCart'));
-    const productsNumber = userCartObject.reduce(
+    const storageCart = localStorage.getItem('userCart');
+    if (!storageCart) {
+      setCartProductsNumber(0);
+      return;
+    }
+    const storageCartObject = JSON.parse(storageCart);
+    const productsNumber = storageCartObject.reduce(
       (sum, product) => sum + product.count,
       0
     );

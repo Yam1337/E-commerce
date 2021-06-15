@@ -41,6 +41,9 @@ const ProductPage = ({ match }) => {
   }, [loading, match.params.id]);
 
   const [productDetails, setProductDetails] = useState([]);
+  const productCounterHandler = (change) => {
+    setItemCount(itemCount + change);
+  };
 
   return (
     <>
@@ -74,7 +77,7 @@ const ProductPage = ({ match }) => {
               </StandardButton>
               <Margin />
               <ProductCounter
-                setItemCount={setItemCount}
+                setItemCount={productCounterHandler}
                 itemCount={itemCount}
               />
             </ButtonCountWrapper>

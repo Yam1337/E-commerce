@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Switch,
   Redirect,
@@ -53,7 +53,7 @@ function App() {
     <UserDataProvider>
       <ThemeProvider theme={isDarkMode ? darkMode : lightMode}>
         <GlobalStyle />
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <NavBar isDarkMode={isDarkMode} themeHandler={themeToggler} />
           <div className='app-container'>
             <Switch>

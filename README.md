@@ -54,7 +54,6 @@ Along the process we were taking the advantage of [dribbble](https://dribbble.co
 - SPA feeling with React Router
 - styling based on styled-components
 - theme toggling with save to local storage with styled-components ThemeProvider
-- private&protected routes with user's basic authorization process
 - picking and collecting products in your cart
 - profile page with access to your previous orders
 

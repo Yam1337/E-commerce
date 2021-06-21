@@ -11,7 +11,7 @@ import {
   TopContainer,
   Error,
 } from './styles';
-import { Loader } from '../../styles';
+import LoaderComponent from '../../components/Loader/index';
 
 const CategoryPage = ({ match }) => {
   const [itemsPerPage, setItemsPerPage] = useState(8);
@@ -77,7 +77,7 @@ const CategoryPage = ({ match }) => {
       if (count === 0) {
         try {
           const { data } = await axios.get(
-            `https://frontend-labs.herokuapp.com/products/count/?category.id=${match.params.id}`
+            `https://e-commerce-mock-api.herokuapp.com/products/count/?_countId=${match.params.id}`
           );
           setCount(data);
         } catch (e) {
@@ -89,7 +89,7 @@ const CategoryPage = ({ match }) => {
       if (category === '') {
         try {
           const { data } = await axios.get(
-            `https://frontend-labs.herokuapp.com/categories/?id=${match.params.id}`
+            `https://e-commerce-mock-api.herokuapp.com/categories/${match.params.id}`
           );
           setCategory(data[0].name);
         } catch (e) {
@@ -99,10 +99,13 @@ const CategoryPage = ({ match }) => {
     };
     const fetchCategories = async () => {
       try {
+        // const { data } = await axios.get(
+        //   `https://frontend-labs.herokuapp.com/products?_limit=${itemsPerPage}&category.id=${
+        //     match.params.id
+        //   }&_start=${whichPage()}&_sort=${sort}`
+        // );
         const { data } = await axios.get(
-          `https://frontend-labs.herokuapp.com/products?_limit=${itemsPerPage}&category.id=${
-            match.params.id
-          }&_start=${whichPage()}&_sort=${sort}`
+          `https://e-commerce-mock-api.herokuapp.com/categories?_id=${match.params.id}`
         );
         setProducts(data);
       } catch (e) {
@@ -122,13 +125,13 @@ const CategoryPage = ({ match }) => {
     <>
       <ComponentWrapper>
         {loader ? (
-          <Loader />
+          <LoaderComponent />
         ) : (
           <>
             <TopContainer>
               <Title>{`${category} category - ${count} products`}</Title>
               <div>
-                <CustomSelect
+                {/* <CustomSelect
                   state={[itemsPerPage, changeItemsPerPage]}
                   title='DISPLAY ITEMS'
                   options={countOptions}
@@ -137,7 +140,7 @@ const CategoryPage = ({ match }) => {
                   state={[sort, changeSort]}
                   title='SORTING BY'
                   options={sortOptions}
-                />
+                /> */}
               </div>
             </TopContainer>
             {error ? (
@@ -158,11 +161,11 @@ const CategoryPage = ({ match }) => {
                     </Link>
                   ))}
                 </GridContainer>
-                <PagerNav
+                {/* <PagerNav
                   state={[page, changePage]}
                   itemsCount={count}
                   itemsPerPage={itemsPerPage}
-                />
+                /> */}
               </>
             )}
           </>

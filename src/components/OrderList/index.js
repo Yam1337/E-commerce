@@ -16,7 +16,7 @@ const OrderList = () => {
     const fetchCount = async () => {
       try {
         const { data } = await axios.get(
-          'https://frontend-labs.herokuapp.com/orders/count'
+          'https://e-commerce-mock-api.herokuapp.com/orders/count'
         );
         setCount(data);
       } catch (err) {
@@ -27,7 +27,7 @@ const OrderList = () => {
     const fetchOrders = async () => {
       try {
         const { data } = await axios.get(
-          `https://frontend-labs.herokuapp.com/orders?_limit=5&_start=${orders.length}`
+          `https://e-commerce-mock-api.herokuapp.com/orders`
         );
         setOrders(orders.concat(data));
       } catch (err) {
@@ -48,11 +48,11 @@ const OrderList = () => {
       <Title>YOUR ORDERS</Title>
       {error === '' ? (
         <ul>
-          {orders?.map((item) => (
-            <Li key={item.id}>
+          {orders?.map((item, index) => (
+            <Li key={Math.random()}>
               <OrderItem
                 key={item.id}
-                id={item.id}
+                id={index + 1}
                 totalPrice={item?.totalPrice}
                 status={item?.status}
                 shippingPrice={item?.shippingPrice}
@@ -68,9 +68,10 @@ const OrderList = () => {
               <NavLoader />
             ) : (
               orders.length !== count && (
-                <Button type='submit' onClick={() => setRefresh(!refresh)}>
-                  LoadMore
-                </Button>
+                // <Button type='submit' onClick={() => setRefresh(!refresh)}>
+                //   LoadMore
+                // </Button>
+                <></>
               )
             )}
           </CenterBox>

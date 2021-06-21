@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import ProductCard from '../../components/ProductCard';
-import { Loader } from '../../styles';
+import LoaderComponent from '../../components/Loader';
 import {
   GridContainer,
   Container,
@@ -16,7 +16,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchAPI = async () => {
       let response = await fetch(
-        'https://frontend-labs.herokuapp.com/products?_sort=created_at&_limit=10'
+        'https://e-commerce-mock-api.herokuapp.com/products?_sort=created_at&_limit=10'
       );
       response = await response.json();
       setProducts(response);
@@ -30,7 +30,7 @@ const HomePage = () => {
       <Title>Most recent products</Title>
       <Container>
         {loader ? (
-          <Loader />
+          <LoaderComponent />
         ) : (
           <GridContainer>
             {products?.map((item) => {

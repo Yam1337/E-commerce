@@ -48,7 +48,8 @@ const OrderItem = ({ id, totalPrice, products, shippingPrice }) => {
               )}
               {products?.map((item) => (
                 <OrderProduct
-                  key={item.id}
+                  count={item?.count}
+                  key={item?.id}
                   name={item?.name}
                   image={item?.image}
                   price={item?.price}

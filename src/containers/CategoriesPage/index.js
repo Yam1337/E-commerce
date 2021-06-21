@@ -14,7 +14,7 @@ const CategoriesPage = () => {
     const fetchCategories = async () => {
       try {
         const { data } = await axios.get(
-          'https://frontend-labs.herokuapp.com/categories'
+          'https://e-commerce-mock-api.herokuapp.com/categories'
         );
         setCategories(data);
         setLoader(false);

@@ -13,7 +13,7 @@ const finishOrder = async (totalValue, deliveryValue) => {
     products,
     shippingPrice: deliveryValue,
   };
-  await fetch('https://frontend-labs.herokuapp.com/orders', {
+  await fetch('https://e-commerce-mock-api.herokuapp.com/orders', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

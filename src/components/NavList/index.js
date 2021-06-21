@@ -17,7 +17,9 @@ const NavList = ({ isMenuOpen, handleClick }) => {
   }, [setUserName]);
 
   const fetchMenuLinks = async () => {
-    const res = await fetch('https://frontend-labs.herokuapp.com/main-menu');
+    const res = await fetch(
+      'https://e-commerce-mock-api.herokuapp.com/main-menu'
+    );
     if (res.ok) {
       const data = await res.json();
       setMenuLinks(data.item);

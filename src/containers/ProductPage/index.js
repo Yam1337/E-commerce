@@ -15,7 +15,7 @@ import fetchData from './utils/fetchData';
 import addToCart from './utils/addToCart';
 import StandardButton from '../../components/StandardButton/styles';
 import ProductCounter from '../../components/ProductCounter/index';
-import { Loader } from '../../styles';
+import LoaderComponent from '../../components/Loader/index';
 import { CartProductsNumberContext } from '../../components/UserDataContext/UserDataContext';
 
 import cartIcons from '../../assets/icons/cartIcons.svg';
@@ -32,7 +32,7 @@ const ProductPage = ({ match }) => {
     const getData = async () => {
       setProductDetails(
         await fetchData(
-          `https://frontend-labs.herokuapp.com/products/${match.params.id}`
+          `https://e-commerce-mock-api.herokuapp.com/products/${match.params.id}`
         )
       );
       setLoading(false);
@@ -48,9 +48,7 @@ const ProductPage = ({ match }) => {
   return (
     <>
       {loading ? (
-        <ProductDetailsPageWrapper>
-          <Loader />
-        </ProductDetailsPageWrapper>
+        <LoaderComponent />
       ) : (
         <ProductDetailsPageWrapper>
           <ProductDetailsWrapper>

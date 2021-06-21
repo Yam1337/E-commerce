@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.js": "/E-commerce/static/js/main.190f69db.chunk.js",
+    "main.js.map": "/E-commerce/static/js/main.190f69db.chunk.js.map",
+    "runtime-main.js": "/E-commerce/static/js/runtime-main.8facb337.js",
+    "runtime-main.js.map": "/E-commerce/static/js/runtime-main.8facb337.js.map",
+    "static/js/2.c4c5a567.chunk.js": "/E-commerce/static/js/2.c4c5a567.chunk.js",
+    "static/js/2.c4c5a567.chunk.js.map": "/E-commerce/static/js/2.c4c5a567.chunk.js.map",
+    "index.html": "/E-commerce/index.html",
+    "static/js/2.c4c5a567.chunk.js.LICENSE.txt": "/E-commerce/static/js/2.c4c5a567.chunk.js.LICENSE.txt",
+    "static/media/cartIcons.4c2559ac.svg": "/E-commerce/static/media/cartIcons.4c2559ac.svg",
+    "static/media/categoriesIcons.c4c252b0.svg": "/E-commerce/static/media/categoriesIcons.c4c252b0.svg",
+    "static/media/deleteIcons.56db1e08.svg": "/E-commerce/static/media/deleteIcons.56db1e08.svg",
+    "static/media/doorIcons.f73d0146.svg": "/E-commerce/static/media/doorIcons.f73d0146.svg",
+    "static/media/facebookIcons.29d9bcbb.svg": "/E-commerce/static/media/facebookIcons.29d9bcbb.svg",
+    "static/media/homeIcons.e6184eca.svg": "/E-commerce/static/media/homeIcons.e6184eca.svg",
+    "static/media/instagramIcons.372ca2a3.svg": "/E-commerce/static/media/instagramIcons.372ca2a3.svg",
+    "static/media/loginArrowIcons.f73a6cfb.svg": "/E-commerce/static/media/loginArrowIcons.f73a6cfb.svg",
+    "static/media/logoIcons.658b3457.svg": "/E-commerce/static/media/logoIcons.658b3457.svg",
+    "static/media/logoutArrowIcons.84da0504.svg": "/E-commerce/static/media/logoutArrowIcons.84da0504.svg",
+    "static/media/modeIcons.be8196cb.svg": "/E-commerce/static/media/modeIcons.be8196cb.svg",
+    "static/media/profileIcons.037e86be.svg": "/E-commerce/static/media/profileIcons.037e86be.svg",
+    "static/media/twitterIcons.44270f02.svg": "/E-commerce/static/media/twitterIcons.44270f02.svg",
+    "static/media/youtubeIcons.cc455df1.svg": "/E-commerce/static/media/youtubeIcons.cc455df1.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8facb337.js",
+    "static/js/2.c4c5a567.chunk.js",
+    "static/js/main.190f69db.chunk.js"
+  ]
+}

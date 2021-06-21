@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/E-commerce/static/js/main.190f69db.chunk.js",
-    "main.js.map": "/E-commerce/static/js/main.190f69db.chunk.js.map",
+    "main.js": "/E-commerce/static/js/main.86a2361d.chunk.js",
+    "main.js.map": "/E-commerce/static/js/main.86a2361d.chunk.js.map",
     "runtime-main.js": "/E-commerce/static/js/runtime-main.8facb337.js",
     "runtime-main.js.map": "/E-commerce/static/js/runtime-main.8facb337.js.map",
-    "static/js/2.c4c5a567.chunk.js": "/E-commerce/static/js/2.c4c5a567.chunk.js",
-    "static/js/2.c4c5a567.chunk.js.map": "/E-commerce/static/js/2.c4c5a567.chunk.js.map",
+    "static/js/2.765dd2b3.chunk.js": "/E-commerce/static/js/2.765dd2b3.chunk.js",
+    "static/js/2.765dd2b3.chunk.js.map": "/E-commerce/static/js/2.765dd2b3.chunk.js.map",
     "index.html": "/E-commerce/index.html",
-    "static/js/2.c4c5a567.chunk.js.LICENSE.txt": "/E-commerce/static/js/2.c4c5a567.chunk.js.LICENSE.txt",
+    "static/js/2.765dd2b3.chunk.js.LICENSE.txt": "/E-commerce/static/js/2.765dd2b3.chunk.js.LICENSE.txt",
     "static/media/cartIcons.4c2559ac.svg": "/E-commerce/static/media/cartIcons.4c2559ac.svg",
     "static/media/categoriesIcons.c4c252b0.svg": "/E-commerce/static/media/categoriesIcons.c4c252b0.svg",
     "static/media/deleteIcons.56db1e08.svg": "/E-commerce/static/media/deleteIcons.56db1e08.svg",
@@ -25,7 +25,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.8facb337.js",
-    "static/js/2.c4c5a567.chunk.js",
-    "static/js/main.190f69db.chunk.js"
+    "static/js/2.765dd2b3.chunk.js",
+    "static/js/main.86a2361d.chunk.js"
   ]
 }

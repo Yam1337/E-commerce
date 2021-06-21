@@ -3,7 +3,7 @@ import { LogoLink, LogoLinkIcon } from './styles';
 const Logo = () => {
   return (
     <h1 className='logo'>
-      <LogoLink href='/'>
+      <LogoLink href='/home'>
         <LogoLinkIcon />
         e-commerce
       </LogoLink>
